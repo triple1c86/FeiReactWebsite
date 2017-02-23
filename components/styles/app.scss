@@ -1,0 +1,498 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: century_gothic;
+  font-weight: 300;
+  color:#D9B451;
+  background-color: black;
+}
+
+h1 {
+  z-index: 2;
+}
+
+#wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  }
+
+#leftPage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 0;
+  white-space: nowrap;
+  -webkit-transition: -webkit-transform 666ms cubic-bezier(.666,0,.333,1);
+  transition: transform 666ms cubic-bezier(.666,0,.333,1);
+  background-color: blue;
+
+  }
+
+  .leftTrain {
+    transform: translate3d(-50%, 0px, 0px);
+
+     //z-index: 1;
+     //transform: translate3d(0px, 0px, 0px);  //show left page
+
+  }
+
+  .leftGo {
+    z-index: 1;
+    transform: translate3d(0px, 0px, 0px);  //show left page
+  }
+
+  .rightTrain {
+    transform: translate3d(50%, 0px, 0px);
+    // transform: translate3d(0px, 0px, 0px); //show right page
+  }
+
+  a, a:link, a:visited, a:hover, a:active{
+    color: #D8B351;
+    text-decoration: none;
+  }
+
+#rightPage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 0;
+  white-space: nowrap;
+  -webkit-transition: -webkit-transform 666ms cubic-bezier(.666,0,.333,1);
+  transition: transform 666ms cubic-bezier(.666,0,.333,1);
+  background-color: yellow;
+  }
+
+  .page {
+    position: relative;
+    float: left;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+  #leftInner, #rightInner {
+    width: 50%;
+  }
+
+#leftInner {
+  background-color: #171515;
+}
+
+#rightInner {
+  background-color: black;
+}
+
+#loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  overflow: hidden;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+  transition: all 1s ease-out;
+}
+.scrollZone{
+  top: 63%;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+}
+.trackLine {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 3px;
+  height: 100%;
+  -webkit-transform: translate(-100%,0);
+  -ms-transform: translate(-100%,0);
+  transform: translate(-100%,0);
+}
+
+.innerLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ff3a1a;
+  // visibility: hidden;
+  // opacity: 0;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+  -webkit-transition: visibility 0ms linear 666ms,opacity 666ms cubic-bezier(.666,0,.333,1);
+  transition: visibility 0ms linear 666ms,opacity 666ms cubic-bezier(.666,0,.333,1);
+
+}
+
+.fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #D8B351;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
+
+#projectImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../images/projects/foresta/cover-bmw.jpg)no-repeat center center;
+  background-size: cover;
+}
+
+.right-arrow {
+  display: inline-block;
+  width: 4em;
+  height: 4em;
+  border: 0.5em solid #D8B351;
+  background-color: #D8B351;
+  border-radius: 50%;
+  margin-left:4%;
+  margin-top:50%;
+}
+
+.right-arrow:after {
+  content: '';
+	display: inline-block;
+  margin-top: 28%;
+  margin-left: 13%;
+  width: 1.5em;
+  height: 1.5em;
+  border-top: 0.3em solid white;
+  border-right: 0.3em solid white;
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+//ABOUT page
+#leftSite {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  font-size: 0;
+  line-height: 0;
+  white-space: nowrap;
+  -webkit-transition: -webkit-transform 666ms cubic-bezier(.666,0,.333,1);
+  transition: transform 666ms cubic-bezier(.666,0,.333,1);
+
+}
+
+#portraitImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../images/about/portrait.jpg)no-repeat center center;
+  background-size: cover;
+}
+
+#rightSite {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  white-space: nowrap;
+  -webkit-transition: -webkit-transform 666ms cubic-bezier(.666,0,.333,1);
+  transition: transform 666ms cubic-bezier(.666,0,.333,1);
+}
+
+//CONTACT
+
+Logo.top-right {
+  position:absolute;
+  top:0;
+  right:0;
+}
+
+h4 {
+  font-size: 15px;
+}
+ul.social {
+  height: 40px;
+  position: absolute;
+  bottom: 130px;
+  right: 60px;
+  width: 100%;
+}
+ul.social li {
+
+  margin-left: 30px;
+  display: inline-block;
+}
+ol, ul {
+  list-style: none;
+}
+
+ul.home {
+  height: 40px;
+  position: absolute;
+  bottom: 130px;
+  right: -45px;
+  width: 100%;
+}
+ul.home li {
+  margin-left: 30px;
+  display: inline-block;
+}
+
+.lava-link {
+  position: relative;
+  height: 100%;
+  display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.tick {
+  background-color: #D9B451;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  margin-left: 9px;
+  overflow: hidden;
+  -webkit-transform: translate3d(-100%,0,0);
+  transform: translate3d(-100%,0,0);
+  -webkit-transition: margin-left 666ms cubic-bezier(.666,0,.333,1),-webkit-transform 666ms cubic-bezier(.666,0,.333,1);
+  transition: margin-left 666ms cubic-bezier(.666,0,.333,1),transform 666ms cubic-bezier(.666,0,.333,1);
+}
+
+.tick.right {
+  margin-left: -9px;
+  -webkit-transform: translate3d(100%,0,0);
+  transform: translate3d(100%,0,0);
+}
+
+article.upper {
+
+  padding: 20%;
+  padding-left: 35%;
+  left: 14%;
+}
+
+article {
+  position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    padding: 37% 20%;
+    white-space: normal;
+}
+
+article p {
+  color: #D8B351;
+  font-size: 120%;
+}
+
+// page sliding
+
+.pageSlider-leave {
+  transform: translate3d(0, 0, 0);
+}
+
+.pageSlider-leave-active {
+  transform: translate3d(100%, 0, 0);
+  transition: all 600ms;
+}
+
+.pageSlider-enter {
+  transform: translate3d(100%, 0, 0);
+}
+
+.pageSlider-enter-active {
+  transform: translate3d(0, 0, 0);
+  transition: all 600ms;
+}
+
+
+
+
+
+// SVG Logo SHIT
+
+ .svgmain {
+ margin: auto;
+ position: absolute;
+ top: 0;
+ left: 0;
+ bottom: 0;
+ right: 0;
+}
+
+.st0{
+fill: #D8B351;
+}
+
+.path {
+animation: turn 5.25s linear;
+fill-opacity: 0;
+ animation-fill-mode: forwards;
+}
+
+.path1 {
+animation: draw 3s linear;
+fill-opacity: 0;
+   animation-fill-mode: forwards;
+}
+
+
+.t1 {
+ opacity: 0;
+ animation-name: show;
+ animation-delay: 2.25s;
+ animation-duration: 1s;
+ animation-fill-mode: forwards;
+ animation-iteration-count: 1;
+ animation-timing-function: linear;
+}
+
+.t2 {
+ opacity: 0;
+ animation-name: show;
+ animation-delay: 2.5s;
+ animation-duration: 1s;
+ animation-fill-mode: forwards;
+ animation-iteration-count: 1;
+ animation-timing-function: linear;
+
+}
+
+.t3 {
+ opacity: 0;
+ animation-name: show;
+ animation-delay: 2.75s;
+ animation-duration: 1s;
+ animation-fill-mode: forwards;
+ animation-iteration-count: 1;
+ animation-timing-function: linear;
+}
+
+.t4 {
+ opacity: 0;
+ animation-name: show;
+ animation-delay: 3s;
+ animation-duration: 1s;
+ animation-fill-mode: forwards;
+ animation-iteration-count: 1;
+ animation-timing-function: linear;
+}
+
+.t5 {
+ opacity: 0;
+ animation-name: show;
+ animation-delay: 3.25s;
+ animation-duration: 1s;
+ animation-fill-mode: forwards;
+ animation-iteration-count: 1;
+ animation-timing-function: linear;
+}
+.t6 {
+ opacity: 0;
+ animation-name: show;
+ animation-delay: 3.5s;
+ animation-duration: 1s;
+ animation-fill-mode: forwards;
+ animation-iteration-count: 1;
+ animation-timing-function: linear;
+}
+.t7 {
+ opacity: 0;
+ animation-name: show;
+ animation-delay: 3.75s;
+ animation-duration: 1s;
+ animation-fill-mode: forwards;
+ animation-iteration-count: 1;
+ animation-timing-function: linear;
+}
+.t8 {
+ opacity: 0;
+ animation-name: show;
+ animation-delay: 4s;
+ animation-duration: 1s;
+ animation-fill-mode: forwards;
+ animation-iteration-count: 1;
+ animation-timing-function: linear;
+}
+.t9 {
+ opacity: 0;
+ animation-name: show;
+ animation-delay: 4.25s;
+ animation-duration: 1s;
+ animation-fill-mode: forwards;
+ animation-iteration-count: 1;
+ animation-timing-function: linear;
+}
+.t10 {
+ opacity: 0;
+ animation-name: show;
+ animation-delay: 4.5s;
+ animation-duration: 1s;
+ animation-fill-mode: forwards;
+ animation-iteration-count: 1;
+ animation-timing-function: linear;
+}
+.t11 {
+ opacity: 0;
+ animation-name: show;
+ animation-delay: 4.75s;
+ animation-duration: 1s;
+ animation-fill-mode: forwards;
+ animation-iteration-count: 1;
+ animation-timing-function: linear;
+}
+
+
+@keyframes draw {
+0%{fill-opacity: 0;}
+100%{fill-opacity: 1;}
+}
+
+@keyframes turn {
+20%{fill-opacity: 0; transform:rotateY(40deg);}
+100%{fill-opacity: 1;}
+}
+
+@keyframes show {
+ to {
+   opacity: 1;
+ }
+}
+
+@media only screen and (orientation: portrait) {
+
+ svg {
+     transform: scale(2);
+     viewBox: 960 540 1920 1080;
+   }
+}
