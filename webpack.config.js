@@ -37,6 +37,7 @@ plugins: [
       Loader: 'components/Loader.jsx',
       About: 'components/About.jsx',
       Contact: 'components/Contact.jsx',
+      Projects: 'components/Projects.jsx',
       applicationStyles: 'components/styles/app.scss',
       applicationFonts: 'components/fonts/fonts.scss'
     },

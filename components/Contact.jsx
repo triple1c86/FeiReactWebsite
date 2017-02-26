@@ -5,22 +5,36 @@
 class Contact extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {isToggleOn: false};
-
-    this.goLeft = this.goLeft.bind(this);
+    this.state = {
+      addClass: false,
+      indexZ: 0
+    };
+    this.toggle = this.toggle.bind(this);
   }
 
-  goLeft() {
-    this.setState({isToggleOn: true});
-    if(isToggleOn = false){
-      alert(isToggleOn);
+
+  toggle() {
+    this.setState({
+      indexZ: this.state.indexZ +1,
+      addClass: !this.state.addClass
+
+    });
+    if(this.state.indexZ==1){
+      this.setState({indexZ: this.state.indexZ = 0});
     }
 
   }
 
   render() {
+    let leftTrain = ["leftTrain"];
+    if(this.state.addClass){
+      leftTrain.push('moveLeft');
+    }
+
+
+
   return (
-    <div id= 'leftPage' className='leftTrain'>
+    <div id= 'leftPage' className={leftTrain.join(' ')} style={{ zIndex: this.state.indexZ}}>
 
       <h2 className='text-right'>Left Page</h2>
       <div id="leftInner" className='page'>
@@ -58,7 +72,7 @@ class Contact extends React.Component {
           <ul className='home text-left'>
               <li>
                 <div className='lava-link'>
-                  <a onClick={this.goLeft}><h4>HOME<span className='tick'></span></h4></a>
+                  <a onClick={this.toggle}><h4>HOME<span className='tick'></span></h4></a>
                 </div>
               </li>
             </ul>
