@@ -5,6 +5,7 @@ var Main = require('Main');
 var Content = require('Content');
 var About = require('About');
 var Contact = require('Contact');
+var Animation = require('react-addons-css-transition-group');
 
 // Load foundation
 require('style!css!foundation-sites/dist/css/foundation.min.css')
@@ -20,11 +21,16 @@ require('style!css!sass!applicationFonts')
 
 ReactDOM.render((
   <Router history={browserHistory}>
+    <Animation transitionName='pageSlider'transitionEnterTimeout={600}
+        transitionLeaveTimeout={600}>
     <Route path="/" component={Main}>
-      <IndexRoute component={Content} ></IndexRoute>
+
+      <IndexRoute component={About} ></IndexRoute>
       <Route path="about" component={About}></Route>
-      <Route path="contact" component={Contact}></Route>
+      <Route path="content" component={Content}></Route>
+
     </Route>
+    </Animation>
   </Router>
 ),
   document.getElementById('app')
