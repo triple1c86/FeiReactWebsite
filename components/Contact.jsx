@@ -7,7 +7,8 @@ class Contact extends React.Component {
     super(props);
     this.state = {
       addClass: false,
-      indexZ: 0
+      indexZ: 0,
+      homeOrAbout: 'ABOUT'
     };
     this.toggle = this.toggle.bind(this);
   }
@@ -15,12 +16,16 @@ class Contact extends React.Component {
 
   toggle() {
     this.setState({
-      indexZ: this.state.indexZ +1,
-      addClass: !this.state.addClass
-
+      indexZ: this.state.indexZ+1,
+      addClass: !this.state.addClass,
+      homeOrAbout: this.state.homeOrAbout == 'ABOUT' ? 'HOME' : 'ABOUT'
     });
+
     if(this.state.indexZ==1){
-      this.setState({indexZ: this.state.indexZ = 0});
+      setTimeout(function(){
+             this.setState({indexZ: 0});
+        }.bind(this),600);
+
     }
 
   }
@@ -72,7 +77,7 @@ class Contact extends React.Component {
           <ul className='home text-left'>
               <li>
                 <div className='lava-link'>
-                  <a onClick={this.toggle}><h4>HOME<span className='tick'></span></h4></a>
+                  <a onClick={this.toggle}><h4>{this.state.homeOrAbout}<span className='tick'></span></h4></a>
                 </div>
               </li>
             </ul>
