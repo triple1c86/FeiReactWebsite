@@ -1,13 +1,12 @@
 var React = require('react');
 var {Link} = require('react-router');
-
 var Loader = require('Loader');
 
 var About = (props) => {
   return (
 
     <div id ='wrapper'>
-
+        >
         <div id= 'leftSite'>
           <div id= 'portraitImg'>
           <h2 className='text-right'>Left Page</h2>
@@ -21,7 +20,6 @@ var About = (props) => {
               <p className='text-right'>Year 2013, Hew decided to establish a team of professional with capability that able to complete any challenging project which entrusted by client, and he named it <br /><Link to='content'><b>- Custo Design -</b></Link></p>
           </article>
         </div>
-
         <Loader />
 
     </div>

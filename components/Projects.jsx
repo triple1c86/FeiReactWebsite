@@ -1,7 +1,7 @@
 var React = require('react');
 var Logo = require('Logo');
 var {Link} = require('react-router');
-var Contact = require('Contact');
+
 
 var ProjectsList = [{
   'name' : 'project1',

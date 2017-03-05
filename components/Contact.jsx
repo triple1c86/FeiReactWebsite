@@ -1,6 +1,7 @@
   var React = require('react');
   var Logo = require('Logo');
   var {Link} = require('react-router');
+  var EmailUser = require('EmailUser');
 
 class Contact extends React.Component {
   constructor(props) {
@@ -25,9 +26,7 @@ class Contact extends React.Component {
       setTimeout(function(){
              this.setState({indexZ: 0});
         }.bind(this),600);
-
     }
-
   }
 
   render() {
@@ -47,7 +46,15 @@ class Contact extends React.Component {
           <article className='upper'>
               <p className='text-right'><b>Living Reflect Lifestyles</b> – we strongly believe in personal nature reflect the planning and setting of each spaces where we apply creative solution that ignite changes and improve quality of lifestyle.</p>
 
-              <p className='text-right'>We works closely with each client, often the architects and contractors, in developing and executing the best design solution.<br /><br /><br /><Link to='/Contact'><b>bryan@custo.com.my<span className='tick right'></span></b></Link></p>
+              <p className='text-right'>We works closely with each client, often the architects and contractors, in developing and executing the best design solution.
+                <br />
+                <br />
+                <br />
+
+                <EmailUser/>
+                  <b>bryan@custo.com.my<span className='tick right'></span></b>
+
+              </p>
           </article>
           <ul className='social text-right'>
               <li>
@@ -86,5 +93,6 @@ class Contact extends React.Component {
   );
 }
 }
+
 
 module.exports = Contact;
