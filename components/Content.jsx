@@ -6,14 +6,16 @@ var Tappable = require ('react-tappable');
 class Content extends React.Component {
   constructor(props)  {
     super(props);
-
+    this.state = {
+      name: 'Project Title'
+    }
   }
 
   render() {
   return (
     <div id='wrapper'>
 
-      <Contact />
+      <Contact name={this.state.name} />
 
       <Projects />
 

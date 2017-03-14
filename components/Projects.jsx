@@ -3,21 +3,42 @@ var Logo = require('Logo');
 var {Link} = require('react-router');
 
 
-var ProjectsList = [{
+
+var ProjectsList = React.createClass ({
+  render: function() {
+    var list = this.props.projectsData.map(function(projectsProps){
+      return <ProjectsD {...projectsProps} />
+    });
+    return <div>
+      {list}
+    </div>
+  }
+});
+
+
+var ProjectsD = React.createClass ({
+  render: function () {
+    return<div>
+        <h1>{this.props.name}</h1>
+        <p>{this.props.mainUrl}</p>
+        <p>{this.props.description}</p>
+        <p>{this.props.otherUrls}</p>
+    </div>
+  }
+});
+
+var projectsData = [{
   'name' : 'project1',
-  'b&wUrl' : '-url',
   'mainUrl' : '-url',
   'description' : 'bla bla bla',
   'otherUrls' : ''
 }, {
   'name' : 'project2',
-  'b&wUrl' : '-url',
   'mainUrl' : '-url',
   'description' : 'bla bla bla',
   'otherUrls' : ''
 }, {
   'name' : 'project3',
-  'b&wUrl' : '-url',
   'mainUrl' : '-url',
   'description' : 'bla bla bla',
   'otherUrls' : ''
@@ -29,7 +50,8 @@ constructor(props) {
   this.state = {
     addClass: false,
     indexZ: 0,
-    rightOrLeft: 'right-arrow'
+    rightOrLeft: 'right-arrow',
+    filter: ''
   };
   this.toggle = this.toggle.bind(this);
 }
@@ -38,13 +60,13 @@ toggle() {
   this.setState({
     indexZ: this.state.indexZ+1,
     addClass: !this.state.addClass,
-    rightOrLeft: this.state.rightOrLeft == 'right-arrow' ? 'left-arrow' : 'right-arrow'
+    rightOrLeft: this.state.rightOrLeft == 'right-arrow' ? 'left-arrow' : 'right-arrow',
+    filter: 'none, style.WebkitTransition : grayscale(0%)'
   });
   if(this.state.indexZ==1){
     this.setState({indexZ: 0});
   }
 }
-
 
 render() {
   let rightTrain = ["rightTrain"];
@@ -52,13 +74,13 @@ render() {
     rightTrain.push('moveRight');
   }
 
-
 return (
   <div id= 'rightPage' className ={rightTrain.join(' ')} style={{ zIndex: this.state.indexZ}}>
-    <h2 className='text-left'>Right Page</h2>
+
       <div id="leftInner" className='page'>
-        <h2 className='text-right'>Inner Left</h2>
-        <div id="projectImg">
+
+        <div id="container">
+          <div id="projectImg" style={{filter: this.state.filter}}></div>
           <a onClick={this.toggle}>
             <span className={this.state.rightOrLeft}></span>
           </a>
@@ -66,7 +88,8 @@ return (
       </div>
       <div id="rightInner" className='page'>
 
-        <h2 className='text-left'>Inner Right</h2>
+
+          <ProjectsList projectsData={projectsData} />
       </div>
   </div>
 );

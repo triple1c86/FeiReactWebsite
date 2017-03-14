@@ -1,7 +1,7 @@
   var React = require('react');
   var Logo = require('Logo');
   var {Link} = require('react-router');
-  var EmailUser = require('EmailUser');
+  var Linkify = require('react-linkify').default;
 
 class Contact extends React.Component {
   constructor(props) {
@@ -9,7 +9,7 @@ class Contact extends React.Component {
     this.state = {
       addClass: false,
       indexZ: 0,
-      homeOrAbout: 'ABOUT'
+      homeOrAbout: 'CONTACT'
     };
     this.toggle = this.toggle.bind(this);
   }
@@ -19,12 +19,22 @@ class Contact extends React.Component {
     this.setState({
       indexZ: this.state.indexZ+1,
       addClass: !this.state.addClass,
-      homeOrAbout: this.state.homeOrAbout == 'ABOUT' ? 'HOME' : 'ABOUT'
+      homeOrAbout: this.state.homeOrAbout
     });
 
     if(this.state.indexZ==1){
       setTimeout(function(){
              this.setState({indexZ: 0});
+        }.bind(this),600);
+    }
+
+    if(this.state.homeOrAbout=='CONTACT'){
+      setTimeout(function(){
+             this.setState({homeOrAbout: 'HOME'});
+        }.bind(this),600);
+    } else {
+      setTimeout(function(){
+             this.setState({homeOrAbout: 'CONTACT'});
         }.bind(this),600);
     }
   }
@@ -40,9 +50,9 @@ class Contact extends React.Component {
   return (
     <div id= 'leftPage' className={leftTrain.join(' ')} style={{ zIndex: this.state.indexZ}}>
 
-      <h2 className='text-right'>Left Page</h2>
+
       <div id="leftInner" className='page'>
-        <h2 className='text-right'>Inner Left</h2>
+
           <article className='upper'>
               <p className='text-right'><b>Living Reflect Lifestyles</b> – we strongly believe in personal nature reflect the planning and setting of each spaces where we apply creative solution that ignite changes and improve quality of lifestyle.</p>
 
@@ -50,10 +60,9 @@ class Contact extends React.Component {
                 <br />
                 <br />
                 <br />
-
-                <EmailUser/>
+                <Linkify>
                   <b>bryan@custo.com.my<span className='tick right'></span></b>
-
+                </Linkify>
               </p>
           </article>
           <ul className='social text-right'>
@@ -77,10 +86,10 @@ class Contact extends React.Component {
       </div>
 
       <div id="rightInner" className='page'>
-        <h2 className='text-left'>Inner Right</h2>
+        
 
         <Logo width="175" height="100"/>
-
+          <h1>{this.props.name}</h1>
           <ul className='home text-left'>
               <li>
                 <div className='lava-link'>

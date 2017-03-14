@@ -9,7 +9,6 @@ var About = (props) => {
         >
         <div id= 'leftSite'>
           <div id= 'portraitImg'>
-          <h2 className='text-right'>Left Page</h2>
           </div>
         </div>
 

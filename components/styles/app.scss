@@ -155,14 +155,33 @@ h1 {
   transform: translate3d(0,0,0);
 }
 
+#container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
 #projectImg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: url(../images/projects/foresta/cover-bmw.jpg)no-repeat center center;
+  background: url(../images/projects/foresta/cover.jpg)no-repeat center center;
+  filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(90%); /* Chrome 19+ & Safari 6+ */
+    -webkit-transition: all .6s ease; /* Fade to color for Chrome and Safari */
+    -webkit-backface-visibility: hidden;
   background-size: cover;
+  z-index: -1;
+}
+
+#project1Img:hover {
+  filter: none;
+    -webkit-filter: grayscale(0%);
 }
 .left-arrow {
   display: inline-block;
@@ -173,6 +192,19 @@ h1 {
   border-radius: 50%;
   margin-left:4%;
   margin-top:50%;
+
+}
+
+.left-arrow:hover {
+  display: inline-block;
+  width: 4em;
+  height: 4em;
+  border: 0.5em solid #D8B351;
+  background-color: #D8B351;
+  border-radius: 50%;
+  margin-left:4%;
+  margin-top:50%;
+  transform: scale(1.15);
 }
 
 .left-arrow:after {
@@ -187,6 +219,8 @@ h1 {
   -moz-transform: rotate(225deg);
   -webkit-transform: rotate(225deg);
   transform: rotate(225deg);
+  -webkit-transition-delay: 0.6s; /* Safari */
+  transition-delay: 0.6s;
 }
 
 .right-arrow {
@@ -198,6 +232,19 @@ h1 {
   border-radius: 50%;
   margin-left:4%;
   margin-top:50%;
+  transition: transform .25s ease;
+}
+
+.right-arrow:hover {
+  display: inline-block;
+  width: 4em;
+  height: 4em;
+  border: 0.5em solid #D8B351;
+  background-color: #D8B351;
+  border-radius: 50%;
+  margin-left:4%;
+  margin-top:50%;
+  transform: scale(1.15);
 }
 
 .right-arrow:after {
@@ -212,6 +259,64 @@ h1 {
   -moz-transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
+  -webkit-transition-delay: 0.6s; /* Safari */
+      transition-delay: 0.6s;
+}
+
+.close-button {
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 0.75em;
+  height: 0.75em;
+  position: relative;
+  border: none;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+  font: normal 8em/normal Arial, Helvetica, sans-serif;
+  color: rgba(0,0,0,1);
+  background: #1abc9c;
+}
+
+.close-button::before {
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 0.45em;
+  height: 0.1em;
+  position: absolute;
+  content: "";
+  top: 0.33em;
+  left: 0.155em;
+  border: none;
+  font: normal 100%/normal Arial, Helvetica, sans-serif;
+  color: rgba(0,0,0,1);
+  background: #ffffff;
+  text-shadow: none;
+  -webkit-transform: rotateZ(45deg)   ;
+  transform: rotateZ(45deg)   ;
+}
+
+.close-button::after {
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 0.45em;
+  height: 0.1em;
+  position: absolute;
+  content: "";
+  top: 0.33em;
+  left: 0.155em;
+  border: none;
+  font: normal 100%/normal Arial, Helvetica, sans-serif;
+  color: rgba(0,0,0,1);
+  background: #ffffff;
+  text-shadow: none;
+  -webkit-transform: rotateZ(-45deg)   ;
+  transform: rotateZ(-45deg)   ;
 }
 
 //ABOUT page
@@ -264,7 +369,7 @@ h4 {
 ul.social {
   height: 40px;
   position: absolute;
-  bottom: 130px;
+  bottom: 30px;
   right: 60px;
   width: 100%;
 }
@@ -280,7 +385,7 @@ ol, ul {
 ul.home {
   height: 40px;
   position: absolute;
-  bottom: 130px;
+  bottom: 30px;
   right: -45px;
   width: 100%;
 }
