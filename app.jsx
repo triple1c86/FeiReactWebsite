@@ -13,6 +13,10 @@ $(document).foundation();
 
 // App css
 require('style!css!sass!applicationStyles')
+//require('style!css!fullreactNorm')
+//require('style!css!fullreactSke')
+require('style!css!sass!exampleStyles')
+
 
 // App font
 require('style!css!sass!applicationFonts')

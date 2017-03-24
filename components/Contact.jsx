@@ -86,7 +86,7 @@ class Contact extends React.Component {
       </div>
 
       <div id="rightInner" className='page'>
-        
+
 
         <Logo width="175" height="100"/>
           <h1>{this.props.name}</h1>

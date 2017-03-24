@@ -3,19 +3,48 @@ var Logo = require('Logo');
 var {Link} = require('react-router');
 
 
+import Tappable from 'react-tappable';
 
-var ProjectsList = React.createClass ({
-  render: function() {
-    var list = this.props.projectsData.map(function(projectsProps){
-      return <ProjectsD {...projectsProps} />
-    });
-    return <div>
-      {list}
-    </div>
-  }
-});
+const {Fullpage, Slide, HorizontalSlider, Overlay, changeHorizontalSlide, changeFullpageSlide} = require('fullpage-react');
 
 
+
+let fullPageOptions = {
+  // for mouse/wheel events
+  // represents the level of force required to generate a slide change on non-mobile, 10 is default
+  scrollSensitivity: 2,
+
+  // for touchStart/touchEnd/mobile scrolling
+  // represents the level of force required to generate a slide change on mobile, 10 is default
+  touchSensitivity: 2,
+  scrollSpeed: 500,
+  resetSlides: true,
+  hideScrollBars: true
+};
+
+let topNavStyle = {
+  textAlign: 'center',
+  position: 'fixed',
+  width: '100%',
+  cursor: 'pointer',
+  zIndex: 10,
+  backgroundColor: 'rgba(255, 255, 255, 0.4)',
+  top: '0px'
+};
+
+let horizontalNavStyle = {
+  position: 'relative',
+  top: '50%'
+};
+
+let horizontalSliderProps = {
+  name: 'horizontalSlider1',
+  scrollSpeed: 500,
+  infinite: true,
+  resetSlides: false,
+  scrollSensitivity: 2,
+  touchSensitivity: 2
+};
 var ProjectsD = React.createClass ({
   render: function () {
     return<div>
@@ -44,6 +73,20 @@ var projectsData = [{
   'otherUrls' : ''
 }];
 
+var ProjectsList = React.createClass ({
+  render: function() {
+    var list = this.props.projectsData.map(function(projectsProps){
+      return <ProjectsD {...projectsProps} />
+    });
+    return <div>
+      {list}
+    </div>
+  }
+});
+
+
+
+
 class Projects extends React.Component {
 constructor(props) {
   super(props);
@@ -51,9 +94,19 @@ constructor(props) {
     addClass: false,
     indexZ: 0,
     rightOrLeft: 'right-arrow',
-    filter: ''
+    filter: '',
+    active: {
+        Fullpage: 0,
+        horizontalSlider1: 0
+      },
+      previous: {
+        Fullpage: 0,
+        horizontalSlider1: 0
+      }
   };
   this.toggle = this.toggle.bind(this);
+  this.onSlideChangeStart = this.onSlideChangeStart.bind(this);
+  this.onSlideChangeEnd = this.onSlideChangeEnd.bind(this);
 }
 
 toggle() {
@@ -68,16 +121,66 @@ toggle() {
   }
 }
 
+onSlideChangeStart(name, state) {
+    console.log('slide STARTED for', name, state.activeSlide);
+    var sliderState = { previous: {} };
+    sliderState.previous[name] = state.activeSlide;
+    this.setState(sliderState);
+  }
+
+  onSlideChangeEnd(name, state) {
+    console.log('slide ENDED for', name, state.activeSlide);
+    var sliderState = { active: {} };
+    sliderState.active[name] = state.activeSlide;
+    this.setState(sliderState);
+  }
+
 render() {
   let rightTrain = ["rightTrain"];
   if(this.state.addClass){
     rightTrain.push('moveRight');
   }
 
+  let prevSlide = changeFullpageSlide.bind(null, 'PREV');
+    let nextSlide = changeFullpageSlide.bind(null, 'NEXT');
+    let backToTop = changeFullpageSlide.bind(null, 0);
+
+    let topNav = (
+      <Overlay style={topNavStyle}>
+        <Tappable onTap={prevSlide}>
+          <button>Previous Slide</button>
+        </Tappable>
+        <Tappable onTap={backToTop}>
+          <button>Back to Top</button>
+        </Tappable>
+        <Tappable onTap={nextSlide}>
+          <button>Next Slide</button>
+        </Tappable>
+      </Overlay>
+    );
+
+    let prevHorizontalSlide = changeHorizontalSlide.bind(null, 'horizontalSlider1', 'PREV');
+    let nextHorizontalSlide = changeHorizontalSlide.bind(null, 'horizontalSlider1', 'NEXT');
+
+    let horizontalNav = (
+      <Overlay style={{top: '50%'}}>
+        <div style={horizontalNavStyle}>
+          <Tappable onTap={prevHorizontalSlide}><button>PREV</button></Tappable>
+          <Tappable style={{position: 'absolute', right: '0px'}} onTap={nextHorizontalSlide}><button>Next</button></Tappable>
+        </div>
+      </Overlay>
+    );
+
 return (
   <div id= 'rightPage' className ={rightTrain.join(' ')} style={{ zIndex: this.state.indexZ}}>
 
+    <Fullpage onSlideChangeStart={this.onSlideChangeStart} onSlideChangeEnd={this.onSlideChangeEnd} {...fullPageOptions}>
+
+    {topNav}
+
+    <Slide className="blue">
       <div id="leftInner" className='page'>
+
 
         <div id="container">
           <div id="projectImg" style={{filter: this.state.filter}}></div>
@@ -87,10 +190,47 @@ return (
         </div>
       </div>
       <div id="rightInner" className='page'>
+        <Slide className="test">
+        <p><br/>Slide 1</p>
 
+          <ProjectsList projectsData={projectsData} />
+        </Slide>
+      </div>
+
+    </Slide>
+
+    <HorizontalSlider {...horizontalSliderProps}>
+      <Slide className="red"><p><br/>Slide 2</p><p>Horizontal 1</p></Slide>
+
+      <Slide className="yellow"><p>Slide 2</p><p>Horizontal 2</p></Slide>
+
+      <Slide className="green"><p>Slide 2</p><p>Horizontal 3</p></Slide>
+
+      {horizontalNav}
+    </HorizontalSlider>
+
+    <Slide className="dark-blue">
+      <div id="leftInner" className='page'>
+
+
+        <div id="container">
+          <div id="projectImg" style={{filter: this.state.filter}}></div>
+          <a onClick={this.toggle}>
+            <span className={this.state.rightOrLeft}></span>
+          </a>
+        </div>
+      </div>
+      <div id="rightInner" className='page'>
+        <p><br/>Slide 1</p>
 
           <ProjectsList projectsData={projectsData} />
       </div>
+      <p>Slide 3</p>
+    </Slide>
+    <Slide className="green"><p>Slide 4</p></Slide>
+  </Fullpage>
+
+
   </div>
 );
 }

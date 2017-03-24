@@ -1,0 +1,47 @@
+$blue : #35A7FF;
+$dark-blue : #38618C;
+$white : #FFFFFF;
+$red : #FF5964;
+$yellow : #FFE74C;
+$green : #B8E0D2;
+
+.blue {
+  background-color: $blue;
+  z-index: 100;
+  }
+.dark-blue {
+  background-color: $dark-blue;
+  }
+.white {
+  background-color: $white;
+  }
+.red{
+  background-color: $red;
+  }
+.yellow{
+  background-color: $yellow;
+  }
+.green{
+  background-color: $green;
+}
+.test{
+  background-color: purple;
+}
+
+.color-blue{
+  color: $blue;
+  }
+.color-white{
+  color: $white;
+  }
+.color-red{
+  color: $red;
+  }
+
+
+button{
+  background-color :$white;
+  }
+  button:hover{
+    background-color: lightgray;
+  }

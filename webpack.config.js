@@ -40,7 +40,10 @@ plugins: [
       Projects: 'components/Projects.jsx',
       EmailUser: 'components/EmailUser.jsx',
       applicationStyles: 'components/styles/app.scss',
-      applicationFonts: 'components/fonts/fonts.scss'
+      applicationFonts: 'components/fonts/fonts.scss',
+      fullreactNorm: 'components/normalize.css',
+      fullreactSke: 'components/skeleton.css',
+      exampleStyles: 'components/exampleStyles.scss'
     },
     extensions: ['', '.js', '.jsx']
   },
