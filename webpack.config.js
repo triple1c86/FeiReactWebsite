@@ -38,6 +38,7 @@ plugins: [
       About: 'components/About.jsx',
       Contact: 'components/Contact.jsx',
       Projects: 'components/Projects.jsx',
+      ArrowButton: 'components/ArrowButton.jsx',
       EmailUser: 'components/EmailUser.jsx',
       applicationStyles: 'components/styles/app.scss',
       applicationFonts: 'components/fonts/fonts.scss',
