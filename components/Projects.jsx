@@ -2,6 +2,8 @@ var React = require('react');
 var Logo = require('Logo');
 var {Link} = require('react-router');
 var ArrowButton = require('ArrowButton');
+import Image from './Image.jsx';
+import testimg from './../components/images/projects/foresta/cover.jpg';
 
 
 import Tappable from 'react-tappable';
@@ -59,17 +61,17 @@ var ProjectsD = React.createClass ({
 
 var projectsData = [{
   'name' : 'project1',
-  'mainUrl' : '-url',
+  'mainUrl' : './../components/images/projects/foresta/cover.jpg',
   'description' : 'bla bla bla',
   'otherUrls' : ''
 }, {
   'name' : 'project2',
-  'mainUrl' : '-url',
+  'mainUrl' : './../components/images/projects/foresta/cover.jpg',
   'description' : 'bla bla bla',
   'otherUrls' : ''
 }, {
   'name' : 'project3',
-  'mainUrl' : '-url',
+  'mainUrl' : './../components/images/projects/foresta/cover.jpg',
   'description' : 'bla bla bla',
   'otherUrls' : ''
 }];
@@ -85,7 +87,15 @@ var ProjectsList = React.createClass ({
   }
 });
 
-
+var data = {
+    'images':[
+      'projects/foresta/cover.jpg',
+      'projects/project2/cover.jpg',
+      'projects/project3/cover.jpg',
+      'projects/foresta/cover.jpg',
+      'projects/foresta/cover.jpg',
+    ]
+}
 
 
 class Projects extends React.Component {
@@ -95,7 +105,7 @@ constructor(props) {
     addClass: false,
     indexZ: 0,
     rightOrLeft: 'right-arrow',
-    filter: '',
+/*  filter: '', */
     active: {
         Fullpage: 0,
         horizontalSlider1: 0
@@ -106,6 +116,7 @@ constructor(props) {
       }
   };
   this.toggle = this.toggle.bind(this);
+/* SLIDE PROBLEM STILL */
   this.onSlideChangeStart = this.onSlideChangeStart.bind(this);
   this.onSlideChangeEnd = this.onSlideChangeEnd.bind(this);
 }
@@ -115,13 +126,13 @@ toggle() {
     indexZ: this.state.indexZ+1,
     addClass: !this.state.addClass,
     rightOrLeft: this.state.rightOrLeft == 'right-arrow' ? 'left-arrow' : 'right-arrow',
-    filter: 'none, style.WebkitTransition : grayscale(0%)'
+/*    filter: 'none, style.WebkitTransition : grayscale(0%)' */
   });
   if(this.state.indexZ==1){
     this.setState({indexZ: 0});
   }
 }
-
+/* SLIDE PROBLEM STILL */
 onSlideChangeStart(name, state) {
     console.log('slide STARTED for', name, state.activeSlide);
     var sliderState = { previous: {} };
@@ -136,12 +147,23 @@ onSlideChangeStart(name, state) {
     this.setState(sliderState);
   }
 
+  /* FUNCTION FOR IMAGES key={image}*/
+  createImage (image) {
+    return <div><Image source={image}/></div>;
+  }
+
+  createImages (images) {
+    return images.map(this.createImage);
+  }
+
+
 render() {
   let rightTrain = ["rightTrain"];
   if(this.state.addClass){
     rightTrain.push('moveRight');
   }
 
+/* SLIDE PROBLEM STILL */
   let prevSlide = changeFullpageSlide.bind(null, 'PREV');
     let nextSlide = changeFullpageSlide.bind(null, 'NEXT');
     let backToTop = changeFullpageSlide.bind(null, 0);
@@ -171,44 +193,44 @@ render() {
         </div>
       </Overlay>
     );
+    var imgurl = require('./../components/images/projects/project2/cover.jpg');
+    var projectStyles = {
+      backgroundImage: 'url(' + imgurl + ')'
+    };
 
 return (
   <div id= 'rightPage' className ={rightTrain.join(' ')} style={{ zIndex: this.state.indexZ}}>
 
     <Fullpage onSlideChangeStart={this.onSlideChangeStart} onSlideChangeEnd={this.onSlideChangeEnd} {...fullPageOptions}>
 
-    {topNav}
+    {/*{topNav}*/}
 
     <Slide className="blue">
       <div id="leftInner" className='page'>
 
-
+        {/* {this.state.filter}, */}
         <div id="container">
-          <div id="projectImg" style={{filter: this.state.filter}}></div>
-          <a onClick={this.toggle}>
-            <span className={this.state.rightOrLeft}></span>
-          </a>
+          <div id="projectImg" style={{projectStyles}}></div>
+
+            <a onClick={this.toggle}>
+              <span className={this.state.rightOrLeft}></span>
+            </a>
+
         </div>
       </div>
       <div id="rightInner" className='page'>
-        <Slide className="test">
-        <p><br/>Slide 1</p>
+        <div id="container">
 
-          <ProjectsList projectsData={projectsData} />
-        </Slide>
+            {this.createImages(data.images)}
+
+      </div>
+  {/*    <img className="logo" src={testimg} />
+          <ProjectsList projectsData={projectsData} /> */}
+
       </div>
 
     </Slide>
 
-    <HorizontalSlider {...horizontalSliderProps}>
-      <Slide className="red"><p><br/>Slide 2</p><p>Horizontal 1</p></Slide>
-
-      <Slide className="yellow"><p>Slide 2</p><p>Horizontal 2</p></Slide>
-
-      <Slide className="green"><p>Slide 2</p><p>Horizontal 3</p></Slide>
-
-      {horizontalNav}
-    </HorizontalSlider>
 
     <Slide className="dark-blue">
       <div id="leftInner" className='page'>
@@ -238,3 +260,16 @@ return (
 }
 
 module.exports = Projects;
+
+
+{/*
+    <HorizontalSlider {...horizontalSliderProps}>
+      <Slide className="red"><p><br/>Slide 2</p><p>Horizontal 1</p></Slide>
+
+      <Slide className="yellow"><p>Slide 2</p><p>Horizontal 2</p></Slide>
+
+      <Slide className="green"><p>Slide 2</p><p>Horizontal 3</p></Slide>
+
+      {horizontalNav}
+    </HorizontalSlider>
+*/}
