@@ -237,7 +237,7 @@ return (
 
 
         <div id="container">
-          <div id="projectImg" style={{filter: this.state.filter}}></div>
+          <div id="" style={{filter: this.state.filter}}></div>
           <a onClick={this.toggle}>
             <span className={this.state.rightOrLeft}></span>
           </a>
