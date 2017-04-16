@@ -3,10 +3,27 @@ var Logo = require('Logo');
 var {Link} = require('react-router');
 var ArrowButton = require('ArrowButton');
 import Image from './Image.jsx';
-import testimg from './../components/images/projects/foresta/cover.jpg';
 
-
+import Lightbox from 'react-images';
 import Tappable from 'react-tappable';
+
+
+import Gallery from './Gallery.jsx';
+
+function makeUnsplashSrc (id) {
+	return `https://images.unsplash.com/photo-${id}?dpr=2&auto=format&w=1024&h=1024`;
+}
+function makeUnsplashSrcSet (id, size) {
+	return `https://images.unsplash.com/photo-${id}?dpr=2&auto=format&w=${size} ${size}w`;
+}
+function makeUnsplashThumbnail (id, orientation = 'landscape') {
+	const dimensions = orientation === 'square'
+		? 'w=300&h=300'
+		: 'w=240&h=159';
+
+	return `https://images.unsplash.com/photo-${id}?dpr=2&auto=format&crop=faces&fit=crop&${dimensions}`;
+}
+
 
 const {Fullpage, Slide, HorizontalSlider, Overlay, changeHorizontalSlide, changeFullpageSlide} = require('fullpage-react');
 
@@ -59,21 +76,47 @@ var ProjectsD = React.createClass ({
   }
 });
 
+const DEFAULT_IMAGES = [
+	{ id: '1470619549108-b85c56fe5be8', caption: 'Photo by Alan Emery', orientation: 'square', useForDemo: true }, // https://unsplash.com/photos/SYzUF6XcWBY (Flamingo)
+	{ id: '1471079502516-250c19af6928', caption: 'Photo by Jeremy Bishop', orientation: 'square', useForDemo: true }, // https://unsplash.com/photos/GIpGxe2_cT4 (Turtle)
+	{ id: '1454023492550-5696f8ff10e1', caption: 'Photo by Jessica Weiller', orientation: 'square', useForDemo: true }, // https://unsplash.com/photos/LmVSKeDy6EA (Tiger)
+	{ id: '1470854989922-5be2f7456d78', caption: 'Photo by Piotr Łaskawski', orientation: 'square', useForDemo: true }, // https://unsplash.com/photos/GXMr7BadXQo (Hedgehog)
+	{ id: '1470317596697-cbdeda56f999', caption: 'Photo by Michel Bosma', orientation: 'square', useForDemo: true }, // https://unsplash.com/photos/XgF9e93Tkt0 (Ladybug)
+];
+
 var projectsData = [{
-  'name' : 'project1',
-  'mainUrl' : './../components/images/projects/foresta/cover.jpg',
-  'description' : 'bla bla bla',
-  'otherUrls' : ''
+  name : 'Foresta',
+  cover : './../components/images/projects/foresta/cover.jpg',
+  description : 'bla bla bla',
+  images :[ 'projects/foresta/img_1.jpg',
+            'projects/foresta/img_2.jpg',
+            'projects/foresta/img_3.jpg',
+            'projects/foresta/img_4.jpg',
+            'projects/foresta/img_5.jpg',
+            'projects/foresta/img_6.jpg'
+          ]
 }, {
-  'name' : 'project2',
-  'mainUrl' : './../components/images/projects/foresta/cover.jpg',
-  'description' : 'bla bla bla',
-  'otherUrls' : ''
+  name : 'Kiaramas',
+  cover : './../components/images/projects/kiaramas/cover.jpg',
+  description : 'bla bla bla',
+  images :[ 'projects/kiaramas/img_1.jpg',
+            'projects/kiaramas/img_2.jpg',
+            'projects/kiaramas/img_3.jpg',
+            'projects/kiaramas/img_4.jpg',
+            'projects/kiaramas/img_5.jpg',
+            'projects/kiaramas/img_6.jpg'
+          ]
 }, {
-  'name' : 'project3',
-  'mainUrl' : './../components/images/projects/foresta/cover.jpg',
-  'description' : 'bla bla bla',
-  'otherUrls' : ''
+  name : 'Project3',
+  cover : './../components/images/projects/project3/cover.jpg',
+  description : 'bla bla bla',
+  images :[ 'projects/project3/img_1.jpg',
+            'projects/project3/img_2.jpg',
+            'projects/project3/img_3.jpg',
+            'projects/project3/img_4.jpg',
+            'projects/project3/img_5.jpg',
+            'projects/project3/img_6.jpg'
+          ]
 }];
 
 var ProjectsList = React.createClass ({
@@ -88,9 +131,9 @@ var ProjectsList = React.createClass ({
 });
 
 var data = {
-    'images':[
+    images :[
       'projects/foresta/cover.jpg',
-      'projects/project2/cover.jpg',
+      'projects/kiaramas/cover.jpg',
       'projects/project3/cover.jpg',
       'projects/foresta/cover.jpg',
       'projects/foresta/cover.jpg',
@@ -121,6 +164,8 @@ constructor(props) {
   this.onSlideChangeEnd = this.onSlideChangeEnd.bind(this);
 }
 
+
+/*############### FUNCTIONS ###################*/
 toggle() {
   this.setState({
     indexZ: this.state.indexZ+1,
@@ -139,7 +184,6 @@ onSlideChangeStart(name, state) {
     sliderState.previous[name] = state.activeSlide;
     this.setState(sliderState);
   }
-
   onSlideChangeEnd(name, state) {
     console.log('slide ENDED for', name, state.activeSlide);
     var sliderState = { active: {} };
@@ -147,11 +191,11 @@ onSlideChangeStart(name, state) {
     this.setState(sliderState);
   }
 
+
   /* FUNCTION FOR IMAGES key={image}*/
   createImage (image) {
-    return <div><Image source={image}/></div>;
+    return <div><Image source={image} key={name}/></div>;
   }
-
   createImages (images) {
     return images.map(this.createImage);
   }
@@ -193,9 +237,12 @@ render() {
         </div>
       </Overlay>
     );
-    var imgurl = require('./../components/images/projects/project2/cover.jpg');
+
+
+    var imgurl = require('./../components/images/projects/kiaramas/cover.jpg');
     var projectStyles = {
-      backgroundImage: 'url(' + imgurl + ')'
+      backgroundImage: 'url(' + imgurl + ')',
+      backgroundPosition: 'center center'
     };
 
 return (
@@ -205,12 +252,12 @@ return (
 
     {/*{topNav}*/}
 
-    <Slide className="blue">
+    <Slide>
       <div id="leftInner" className='page'>
 
         {/* {this.state.filter}, */}
         <div id="container">
-          <div id="projectImg" style={{projectStyles}}></div>
+          <div id="projectImg" style={projectStyles}></div>
 
             <a onClick={this.toggle}>
               <span className={this.state.rightOrLeft}></span>
@@ -218,17 +265,32 @@ return (
 
         </div>
       </div>
+
       <div id="rightInner" className='page'>
         <div id="container">
 
-            {this.createImages(data.images)}
+          <Gallery images={DEFAULT_IMAGES.map(({ caption, id, orientation, useForDemo }) => ({
+    src: makeUnsplashSrc(id),
+    thumbnail: makeUnsplashThumbnail(id, orientation),
+    srcset: [
+      makeUnsplashSrcSet(id, 1024),
+      makeUnsplashSrcSet(id, 800),
+      makeUnsplashSrcSet(id, 500),
+      makeUnsplashSrcSet(id, 320),
+    ],
+    caption,
+    orientation,
+    useForDemo,
+  }))} showThumbnails/>
 
-      </div>
-  {/*    <img className="logo" src={testimg} />
+
+
+        </div>
+        {/* {this.createImages(projectsData[0].images)}
+           <img className="logo" src={testimg} />
           <ProjectsList projectsData={projectsData} /> */}
 
       </div>
-
     </Slide>
 
 
