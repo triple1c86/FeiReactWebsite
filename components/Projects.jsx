@@ -5,7 +5,8 @@ var ArrowButton = require('ArrowButton');
 import Image from './Image.jsx';
 import testimg from './../components/images/projects/foresta/cover.jpg';
 
-
+import ScrollLock from 'react-scroll-lock-component';
+import {ScrollBox, ScrollAxes, FastTrack} from 'react-scroll-box';
 import Tappable from 'react-tappable';
 
 const {Fullpage, Slide, HorizontalSlider, Overlay, changeHorizontalSlide, changeFullpageSlide} = require('fullpage-react');
@@ -90,7 +91,7 @@ var ProjectsList = React.createClass ({
 var data = {
     'images':[
       'projects/foresta/cover.jpg',
-      'projects/project2/cover.jpg',
+      'projects/kiaramas/cover.jpg',
       'projects/project3/cover.jpg',
       'projects/foresta/cover.jpg',
       'projects/foresta/cover.jpg',
@@ -156,7 +157,6 @@ onSlideChangeStart(name, state) {
     return images.map(this.createImage);
   }
 
-
 render() {
   let rightTrain = ["rightTrain"];
   if(this.state.addClass){
@@ -193,7 +193,7 @@ render() {
         </div>
       </Overlay>
     );
-    var imgurl = require('./../components/images/projects/project2/cover.jpg');
+    var imgurl = require('./../components/images/projects/kiaramas/cover.jpg');
     var projectStyles = {
       backgroundImage: 'url(' + imgurl + ')'
     };
@@ -205,7 +205,8 @@ return (
 
     {/*{topNav}*/}
 
-    <Slide className="blue">
+    <Slide>
+
       <div id="leftInner" className='page'>
 
         {/* {this.state.filter}, */}
@@ -218,17 +219,24 @@ return (
 
         </div>
       </div>
-      <div id="rightInner" className='page'>
-        <div id="container">
+
+  <ScrollLock className="slbug">
+
+
+      <div id="rightInner" className='page1'>
+<ScrollBox style={{height: '50%'}} fastTrack={FastTrack.PAGING}>
+          <div id="container" style={{height: "100%",overflow: "auto"}}>
 
             {this.createImages(data.images)}
 
-      </div>
+          </div>
+</ScrollBox>
   {/*    <img className="logo" src={testimg} />
           <ProjectsList projectsData={projectsData} /> */}
 
       </div>
 
+  </ScrollLock>
     </Slide>
 
 
