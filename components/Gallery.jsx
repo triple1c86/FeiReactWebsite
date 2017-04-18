@@ -98,6 +98,7 @@ class Gallery extends Component {
 	}
 };
 
+/*
 Gallery.displayName = 'Gallery';
 Gallery.propTypes = {
 	heading: PropTypes.string,
@@ -105,6 +106,7 @@ Gallery.propTypes = {
 	showThumbnails: PropTypes.bool,
 	subheading: PropTypes.string,
 };
+*/
 
 const gutter = {
 	small: 2,
@@ -142,7 +144,7 @@ const classes = StyleSheet.create({
 	},
 	square: {
 		paddingBottom: 0,
-		width: '45%',
+		width: '40%',
 
 		'@media (min-width: 500px)': {
 			paddingBottom: 0,

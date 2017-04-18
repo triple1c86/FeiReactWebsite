@@ -69,22 +69,42 @@ var ProjectsD = React.createClass ({
   render: function () {
     return<div>
         <h1>{this.props.name}</h1>
-        <p>{this.props.mainUrl}</p>
+        <p>{this.props.cover}</p>
         <p>{this.props.description}</p>
-        <p>{this.props.otherUrls}</p>
+        <p>{this.props.images}</p>
     </div>
   }
 });
 
 const DEFAULT_IMAGES = [
-	{ id: '1470619549108-b85c56fe5be8', caption: 'Photo by Alan Emery', orientation: 'square', useForDemo: true }, // https://unsplash.com/photos/SYzUF6XcWBY (Flamingo)
-	{ id: '1471079502516-250c19af6928', caption: 'Photo by Jeremy Bishop', orientation: 'square', useForDemo: true }, // https://unsplash.com/photos/GIpGxe2_cT4 (Turtle)
-	{ id: '1454023492550-5696f8ff10e1', caption: 'Photo by Jessica Weiller', orientation: 'square', useForDemo: true }, // https://unsplash.com/photos/LmVSKeDy6EA (Tiger)
-	{ id: '1470854989922-5be2f7456d78', caption: 'Photo by Piotr Łaskawski', orientation: 'square', useForDemo: true }, // https://unsplash.com/photos/GXMr7BadXQo (Hedgehog)
-	{ id: '1470317596697-cbdeda56f999', caption: 'Photo by Michel Bosma', orientation: 'square', useForDemo: true }, // https://unsplash.com/photos/XgF9e93Tkt0 (Ladybug)
+	{ id: '1470619549108-b85c56fe5be8',
+    caption: 'Photo by Alan Emery',
+     orientation: 'square',
+     useForDemo: true },
+     // https://unsplash.com/photos/SYzUF6XcWBY (Flamingo)
+	{ id: '1471079502516-250c19af6928',
+    caption: 'Photo by Jeremy Bishop',
+    orientation: 'square',
+    useForDemo: true },
+    // https://unsplash.com/photos/GIpGxe2_cT4 (Turtle)
+	{ id: '1454023492550-5696f8ff10e1',
+    caption: 'Photo by Jessica Weiller',
+    orientation: 'square',
+    useForDemo: true },
+    // https://unsplash.com/photos/LmVSKeDy6EA (Tiger)
+	{ id: '1470854989922-5be2f7456d78',
+    caption: 'Photo by Piotr Łaskawski',
+    orientation: 'square',
+    useForDemo: true },
+    // https://unsplash.com/photos/GXMr7BadXQo (Hedgehog)
+	{ id: '1470317596697-cbdeda56f999',
+    caption: 'Photo by Michel Bosma',
+    orientation: 'square',
+    useForDemo: true }, 
+    // https://unsplash.com/photos/XgF9e93Tkt0 (Ladybug)
 ];
 
-var projectsData = [{
+const projectsData = [{
   name : 'Foresta',
   cover : './../components/images/projects/foresta/cover.jpg',
   description : 'bla bla bla',
