@@ -173,6 +173,7 @@ h1 {
   width: 100%;
   height: 100%;
 /*  background: url(../images/projects/foresta/cover.jpg)no-repeat center center; */
+  background-position: center center;
   filter: gray; /* IE6-9 */
   -webkit-filter: grayscale(90%); /* Chrome 19+ & Safari 6+ */
   -webkit-transition: all .6s ease; /* Fade to color for Chrome and Safari */
@@ -185,6 +186,26 @@ h1 {
   filter: none;
     -webkit-filter: grayscale(0%);
 }
+
+.section {
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+  height: 100%;
+}
+.item {
+  display: table-cell;
+  float: left;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .left-arrow {
   display: inline-block;
   width: 4em;

@@ -64,6 +64,7 @@ class Gallery extends Component {
 
 		const gallery = images.filter(i => i.useForDemo).map((obj, i) => {
 			return (
+				<div className="item">
 				<a
 					href={obj.src}
 					className={css(classes.thumbnail, classes[obj.orientation])}
@@ -72,6 +73,7 @@ class Gallery extends Component {
 				>
 					<img src={obj.thumbnail} className={css(classes.source)} />
 				</a>
+				</div>
 			);
 		});
 
@@ -151,8 +153,7 @@ const classes = StyleSheet.create({
 	},
 	square: {
 		paddingBottom: 0,
-		height: '100%',
-		width: '50%',
+		width: '100%',
 
 		'@media (min-width: 500px)': {
 			paddingBottom: 0,
@@ -165,6 +166,7 @@ const classes = StyleSheet.create({
 		display: 'block',
 		height: 'auto',
 		maxWidth: '100%',
+		maxHeight: '100%',
 		width: 'auto',
 	},
 });

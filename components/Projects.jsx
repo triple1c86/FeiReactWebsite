@@ -300,10 +300,19 @@ render() {
     );
 
 
-    var imgurl = require('./../components/images/projects/kiaramas/cover.jpg');
-    var projectStyles = {
-      backgroundImage: 'url(' + imgurl + ')',
-      backgroundPosition: 'center center'
+    var urlP1 = require('./../components/images/projects/foresta/cover.jpg');
+    var project1 = {
+      backgroundImage: 'url(' + urlP1 + ')'
+    };
+
+    var urlP2 = require('./../components/images/projects/kiaramas/cover.jpg');
+    var project2 = {
+      backgroundImage: 'url(' + urlP2 + ')'
+    };
+
+    var urlP3 = require('./../components/images/projects/project3/cover.jpg');
+    var project3 = {
+      backgroundImage: 'url(' + urlP3 + ')'
     };
 
 return (
@@ -318,7 +327,7 @@ return (
 
         {/* {this.state.filter}, */}
         <div id="container">
-          <div id="projectImg" style={projectStyles}></div>
+          <div id="projectImg" style={project1}></div>
 
             <a onClick={this.toggle}>
               <span className={this.state.rightOrLeft}></span>
@@ -350,7 +359,7 @@ return (
 
         {/* {this.state.filter}, */}
         <div id="container">
-          <div id="projectImg" style={projectStyles}></div>
+          <div id="projectImg" style={project2}></div>
 
             <a onClick={this.toggle}>
               <span className={this.state.rightOrLeft}></span>
@@ -376,12 +385,13 @@ return (
       </div>
     </Slide>
 
+
     <Slide>
       <div id="leftInner" className='page'>
 
         {/* {this.state.filter}, */}
         <div id="container">
-          <div id="projectImg" style={projectStyles}></div>
+          <div id="projectImg" style={project3}></div>
 
             <a onClick={this.toggle}>
               <span className={this.state.rightOrLeft}></span>
@@ -406,6 +416,7 @@ return (
         </div>
       </div>
     </Slide>
+
   </Fullpage>
 
 
