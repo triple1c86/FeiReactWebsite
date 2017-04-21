@@ -10,19 +10,7 @@ import Tappable from 'react-tappable';
 
 import Gallery from './Gallery.jsx';
 
-function makeUnsplashSrc (id) {
-	return `https://images.unsplash.com/photo-${id}?dpr=2&auto=format&w=1024&h=1024`;
-}
-function makeUnsplashSrcSet (id, size) {
-	return `https://images.unsplash.com/photo-${id}?dpr=2&auto=format&w=${size} ${size}w`;
-}
-function makeUnsplashThumbnail (id, orientation = 'landscape') {
-	const dimensions = orientation === 'square'
-		? 'w=300&h=300'
-		: 'w=240&h=159';
 
-	return `https://images.unsplash.com/photo-${id}?dpr=2&auto=format&crop=faces&fit=crop&${dimensions}`;
-}
 
 
 const {Fullpage, Slide, HorizontalSlider, Overlay, changeHorizontalSlide, changeFullpageSlide} = require('fullpage-react');
@@ -32,11 +20,11 @@ const {Fullpage, Slide, HorizontalSlider, Overlay, changeHorizontalSlide, change
 let fullPageOptions = {
   // for mouse/wheel events
   // represents the level of force required to generate a slide change on non-mobile, 10 is default
-  scrollSensitivity: 2,
+  scrollSensitivity: 5,
 
   // for touchStart/touchEnd/mobile scrolling
   // represents the level of force required to generate a slide change on mobile, 10 is default
-  touchSensitivity: 2,
+  touchSensitivity: 5,
   scrollSpeed: 500,
   resetSlides: true,
   hideScrollBars: true
@@ -65,16 +53,108 @@ let horizontalSliderProps = {
   scrollSensitivity: 2,
   touchSensitivity: 2
 };
-var ProjectsD = React.createClass ({
-  render: function () {
-    return<div>
-        <h1>{this.props.name}</h1>
-        <p>{this.props.cover}</p>
-        <p>{this.props.description}</p>
-        <p>{this.props.images}</p>
-    </div>
-  }
-});
+
+
+
+const projectsData = [{
+  name : 'Foresta',
+  cover : './../components/images/projects/foresta/cover.jpg',
+  description : 'bla bla bla',
+  images :[
+            { url: 'projects/foresta/img_1.jpg',
+              caption: 'test1',
+              orientation: 'square',
+              useForDemo: true  },
+            { url: 'projects/foresta/img_2.jpg',
+              caption: 'test2',
+              orientation: 'square',
+              useForDemo: true  },
+            { url: 'projects/foresta/img_3.jpg',
+              caption: 'test3',
+              orientation: 'square',
+              useForDemo: true  },
+            { url: 'projects/foresta/img_4.jpg',
+              caption: 'test4',
+              orientation: 'square',
+              useForDemo: true  },
+            { url: 'projects/foresta/img_5.jpg',
+              caption: 'test5',
+              orientation: 'square',
+              useForDemo: true  },
+            { url: 'projects/foresta/img_6.jpg',
+              caption: 'test6',
+              orientation: 'square',
+              useForDemo: true  },
+          ]
+}, {
+  name : 'Kiaramas',
+  cover : './../components/images/projects/kiaramas/cover.jpg',
+  description : 'bla bla bla',
+  images :[
+            { url: 'projects/kiaramas/img_1.jpg',
+              caption: 'test1',
+              orientation: 'square',
+              useForDemo: true  },
+            { url: 'projects/kiaramas/img_2.jpg',
+              caption: 'test2',
+              orientation: 'square',
+              useForDemo: true  },
+            { url: 'projects/kiaramas/img_3.jpg',
+              caption: 'test3',
+              orientation: 'square',
+              useForDemo: true  },
+            { url: 'projects/kiaramas/img_4.jpg',
+              caption: 'test4',
+              orientation: 'square',
+              useForDemo: true  },
+            { url: 'projects/kiaramas/img_5.jpg',
+              caption: 'test5',
+              orientation: 'square',
+              useForDemo: true  },
+
+          ]
+}, {
+  name : 'Project3',
+  cover : './../components/images/projects/project3/cover.jpg',
+  description : 'bla bla bla',
+  images :[
+            { url: 'projects/project3/img_1.jpg',
+              caption: 'test1',
+              orientation: 'square',
+              useForDemo: true  },
+            { url: 'projects/project3/img_2.jpg',
+              caption: 'test2',
+              orientation: 'square',
+              useForDemo: true  },
+            { url: 'projects/project3/img_3.jpg',
+              caption: 'test3',
+              orientation: 'square',
+              useForDemo: true  },
+            { url: 'projects/project3/img_4.jpg',
+              caption: 'test4',
+              orientation: 'square',
+              useForDemo: true  },
+            { url: 'projects/project3/img_5.jpg',
+              caption: 'test5',
+              orientation: 'square',
+              useForDemo: true  },
+
+          ]
+}];
+
+
+var data = {
+    images :[
+      'projects/foresta/cover.jpg',
+      'projects/kiaramas/cover.jpg',
+      'projects/project3/cover.jpg',
+      'projects/foresta/cover.jpg',
+      'projects/foresta/cover.jpg',
+    ]
+}
+
+
+/* MAIN GALLERY STUFF */
 
 const DEFAULT_IMAGES = [
 	{ id: '1470619549108-b85c56fe5be8',
@@ -100,67 +180,28 @@ const DEFAULT_IMAGES = [
 	{ id: '1470317596697-cbdeda56f999',
     caption: 'Photo by Michel Bosma',
     orientation: 'square',
-    useForDemo: true }, 
+    useForDemo: true },
     // https://unsplash.com/photos/XgF9e93Tkt0 (Ladybug)
 ];
 
-const projectsData = [{
-  name : 'Foresta',
-  cover : './../components/images/projects/foresta/cover.jpg',
-  description : 'bla bla bla',
-  images :[ 'projects/foresta/img_1.jpg',
-            'projects/foresta/img_2.jpg',
-            'projects/foresta/img_3.jpg',
-            'projects/foresta/img_4.jpg',
-            'projects/foresta/img_5.jpg',
-            'projects/foresta/img_6.jpg'
-          ]
-}, {
-  name : 'Kiaramas',
-  cover : './../components/images/projects/kiaramas/cover.jpg',
-  description : 'bla bla bla',
-  images :[ 'projects/kiaramas/img_1.jpg',
-            'projects/kiaramas/img_2.jpg',
-            'projects/kiaramas/img_3.jpg',
-            'projects/kiaramas/img_4.jpg',
-            'projects/kiaramas/img_5.jpg',
-            'projects/kiaramas/img_6.jpg'
-          ]
-}, {
-  name : 'Project3',
-  cover : './../components/images/projects/project3/cover.jpg',
-  description : 'bla bla bla',
-  images :[ 'projects/project3/img_1.jpg',
-            'projects/project3/img_2.jpg',
-            'projects/project3/img_3.jpg',
-            'projects/project3/img_4.jpg',
-            'projects/project3/img_5.jpg',
-            'projects/project3/img_6.jpg'
-          ]
-}];
+function makeUnsplashSrc (url) {
+	return require('./../components/images/' + url);
+}
+function makeUnsplashSrcSet (id, size) {
+	return 'https://images.unsplash.com/photo-${id}?dpr=2&auto=format&w=${size} ${size}w';
+}
+function makeUnsplashThumbnail (url, orientation = 'landscape') {
+	const dimensions = orientation === 'square'
+		? 'w=400&h=300'
+		: 'w=240&h=159';
 
-var ProjectsList = React.createClass ({
-  render: function() {
-    var list = this.props.projectsData.map(function(projectsProps){
-      return <ProjectsD {...projectsProps} />
-    });
-    return <div>
-      {list}
-    </div>
-  }
-});
-
-var data = {
-    images :[
-      'projects/foresta/cover.jpg',
-      'projects/kiaramas/cover.jpg',
-      'projects/project3/cover.jpg',
-      'projects/foresta/cover.jpg',
-      'projects/foresta/cover.jpg',
-    ]
+	return require('./../components/images/' + url);
 }
 
 
+
+
+/*MAIN COMPONENT*/
 class Projects extends React.Component {
 constructor(props) {
   super(props);
@@ -289,15 +330,9 @@ return (
       <div id="rightInner" className='page'>
         <div id="container">
 
-          <Gallery images={DEFAULT_IMAGES.map(({ caption, id, orientation, useForDemo }) => ({
-    src: makeUnsplashSrc(id),
-    thumbnail: makeUnsplashThumbnail(id, orientation),
-    srcset: [
-      makeUnsplashSrcSet(id, 1024),
-      makeUnsplashSrcSet(id, 800),
-      makeUnsplashSrcSet(id, 500),
-      makeUnsplashSrcSet(id, 320),
-    ],
+        <Gallery images={projectsData[0].images.map(({ caption, url, useForDemo, orientation }) => ({
+    src: makeUnsplashSrc(url),
+    thumbnail: makeUnsplashThumbnail(url, orientation),
     caption,
     orientation,
     useForDemo,
@@ -306,33 +341,71 @@ return (
 
 
         </div>
-        {/* {this.createImages(projectsData[0].images)}
-           <img className="logo" src={testimg} />
-          <ProjectsList projectsData={projectsData} /> */}
-
       </div>
     </Slide>
 
 
-    <Slide className="dark-blue">
+    <Slide>
       <div id="leftInner" className='page'>
 
-
+        {/* {this.state.filter}, */}
         <div id="container">
-          <div id="" style={{filter: this.state.filter}}></div>
-          <a onClick={this.toggle}>
-            <span className={this.state.rightOrLeft}></span>
-          </a>
+          <div id="projectImg" style={projectStyles}></div>
+
+            <a onClick={this.toggle}>
+              <span className={this.state.rightOrLeft}></span>
+            </a>
+
         </div>
       </div>
-      <div id="rightInner" className='page'>
-        <p><br/>Slide 1</p>
 
-          <ProjectsList projectsData={projectsData} />
+      <div id="rightInner" className='page'>
+        <div id="container">
+
+        <Gallery images={projectsData[1].images.map(({ caption, url, useForDemo, orientation }) => ({
+    src: makeUnsplashSrc(url),
+    thumbnail: makeUnsplashThumbnail(url, orientation),
+    caption,
+    orientation,
+    useForDemo,
+  }))} showThumbnails/>
+
+
+
+        </div>
       </div>
-      <p>Slide 3</p>
     </Slide>
-    <Slide className="green"><p>Slide 4</p></Slide>
+
+    <Slide>
+      <div id="leftInner" className='page'>
+
+        {/* {this.state.filter}, */}
+        <div id="container">
+          <div id="projectImg" style={projectStyles}></div>
+
+            <a onClick={this.toggle}>
+              <span className={this.state.rightOrLeft}></span>
+            </a>
+
+        </div>
+      </div>
+
+      <div id="rightInner" className='page'>
+        <div id="container">
+
+        <Gallery images={projectsData[2].images.map(({ caption, url, useForDemo, orientation }) => ({
+    src: makeUnsplashSrc(url),
+    thumbnail: makeUnsplashThumbnail(url, orientation),
+    caption,
+    orientation,
+    useForDemo,
+  }))} showThumbnails/>
+
+
+
+        </div>
+      </div>
+    </Slide>
   </Fullpage>
 
 

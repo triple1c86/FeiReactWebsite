@@ -5,7 +5,7 @@ import Lightbox from 'react-images';
 class Gallery extends Component {
 	constructor () {
 		super();
-
+/*ALL THESE ARE LIGHTBOX RELATED*/
 		this.state = {
 			lightboxIsOpen: false,
 			currentImage: 0,
@@ -51,6 +51,12 @@ class Gallery extends Component {
 
 		this.gotoNext();
 	}
+	/*ALL THESE ARE LIGHTBOX RELATED*/
+
+
+
+
+
 	renderGallery () {
 		const { images } = this.props;
 
@@ -92,6 +98,7 @@ class Gallery extends Component {
 					onClose={this.closeLightbox}
 					showThumbnails={this.props.showThumbnails}
 					theme={this.props.theme}
+					width='80%'
 				/>
 			</div>
 		);
@@ -126,7 +133,7 @@ const classes = StyleSheet.create({
 	thumbnail: {
 		boxSizing: 'border-box',
 		display: 'block',
-		float: 'right',
+		float: 'left',
 		lineHeight: 0,
 		paddingRight: gutter.small,
 		paddingBottom: gutter.small,
@@ -144,7 +151,8 @@ const classes = StyleSheet.create({
 	},
 	square: {
 		paddingBottom: 0,
-		width: '40%',
+		height: '100%',
+		width: '50%',
 
 		'@media (min-width: 500px)': {
 			paddingBottom: 0,
