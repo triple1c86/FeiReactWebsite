@@ -1,6 +1,5 @@
   var React = require('react');
   var Logo = require('Logo');
-  var {Link} = require('react-router');
   var Linkify = require('react-linkify').default;
 
 class Contact extends React.Component {

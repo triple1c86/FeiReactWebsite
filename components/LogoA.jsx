@@ -1,7 +1,6 @@
 var React = require('react');
 
-const Logo = React.createClass ({
- render() {
+var LogoA = (props) => {
    return (
 
      <svg
@@ -43,8 +42,7 @@ const Logo = React.createClass ({
           className="st0 path" id="XMLID_1_" />
      	 </svg>
 
-   )
- }
-});
+   );
+}
 
-module.exports = Logo;
+module.exports = LogoA;

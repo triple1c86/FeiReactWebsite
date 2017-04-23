@@ -1,6 +1,5 @@
 var LogoA = require('LogoA');
 var React = require('react');
-var {Link} = require('react-router');
 
 
 class Loader extends React.Component {
@@ -25,7 +24,7 @@ class Loader extends React.Component {
   }
     render() {
       return(
-
+        
         <div id= 'loader' style={{ opacity: this.state.opacity, visibility: this.state.visibility, transform: this.state.transform}}>
           <a onClick={this.onHide.bind(this)} style={{cursor:'pointer'}}>
             <LogoA />

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import  React,{ Proptypes, Component } from 'react';
+// import PropTypes from 'prop-types';
 import { css, StyleSheet } from 'aphrodite/no-important';
 import Lightbox from 'react-images';
 
@@ -100,7 +101,7 @@ class Gallery extends Component {
 					onClose={this.closeLightbox}
 					showThumbnails={this.props.showThumbnails}
 					theme={this.props.theme}
-					width='80%'
+					width= '80%'
 				/>
 			</div>
 		);

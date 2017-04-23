@@ -1,13 +1,8 @@
 var React = require('react');
-var {Link} = require('react-router')
+var {Link} = require('react-router-dom')
 
-const Logo = React.createClass ({
-  getDefaultProps(){
-    return {
-      width: '241.2',
-      height: '177.8'
-    }
-  },
+class Logo extends React.Component {
+
  render() {
    return (
      <Link to='/'>
@@ -51,8 +46,13 @@ const Logo = React.createClass ({
           className="st0" id="XMLID_1_" />
      	 </svg></Link>
 
-   )
+   );
  }
-});
+}
+
+Logo.defaultProps = {
+    width: '241.2',
+    height: '177.8',
+  }
 
 module.exports = Logo;

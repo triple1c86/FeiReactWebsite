@@ -1,14 +1,12 @@
 var React = require('react');
 var Logo = require('Logo');
-var {Link} = require('react-router');
 var ArrowButton = require('ArrowButton');
-import Image from './Image.jsx';
 
 import Lightbox from 'react-images';
 import Tappable from 'react-tappable';
 
 
-import Gallery from './Gallery.jsx';
+import Gallery from '../Gallery.jsx';
 
 
 
@@ -185,7 +183,7 @@ const DEFAULT_IMAGES = [
 ];
 
 function makeUnsplashSrc (url) {
-	return require('./../components/images/' + url);
+	return require('./../../components/images/' + url);
 }
 function makeUnsplashSrcSet (id, size) {
 	return 'https://images.unsplash.com/photo-${id}?dpr=2&auto=format&w=${size} ${size}w';
@@ -195,7 +193,7 @@ function makeUnsplashThumbnail (url, orientation = 'landscape') {
 		? 'w=400&h=300'
 		: 'w=240&h=159';
 
-	return require('./../components/images/' + url);
+	return require('./../../components/images/' + url);
 }
 
 
@@ -300,17 +298,17 @@ render() {
     );
 
 
-    var urlP1 = require('./../components/images/projects/foresta/cover.jpg');
+    var urlP1 = require('./../../components/images/projects/foresta/cover.jpg');
     var project1 = {
       backgroundImage: 'url(' + urlP1 + ')'
     };
 
-    var urlP2 = require('./../components/images/projects/kiaramas/cover.jpg');
+    var urlP2 = require('./../../components/images/projects/kiaramas/cover.jpg');
     var project2 = {
       backgroundImage: 'url(' + urlP2 + ')'
     };
 
-    var urlP3 = require('./../components/images/projects/project3/cover.jpg');
+    var urlP3 = require('./../../components/images/projects/project3/cover.jpg');
     var project3 = {
       backgroundImage: 'url(' + urlP3 + ')'
     };
