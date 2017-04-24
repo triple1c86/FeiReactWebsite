@@ -7,9 +7,11 @@ var About = require('About');
 var Contact = require('Contact');
 
 
+
 // Load foundation
-// require('style-loader!css-loader!foundation-sites/dist/css/foundation.min.css')
-// $(document).foundation();
+  require('style-loader!css-loader!foundation-sites/dist/css/foundation.min.css')
+ // $(document).foundation();
+ //require("foundation-sites-loader");
 
 // App css
 require('style-loader!css-loader!sass-loader!applicationStyles')
@@ -26,6 +28,7 @@ const App = () => (
     <Route exact path="/" component={About} />
     <Route path="/contact" component={Contact} />
     <Route path="/content" component={Content} />
+    <Route path="/about" component={About} />
   </Switch>
 )
 
