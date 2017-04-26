@@ -327,8 +327,8 @@ return (
         <div id="container">
           <div id="projectImg" style={project1}></div>
 
-            <a onClick={this.toggle}>
-              <span className={this.state.rightOrLeft}></span>
+            <a  >
+              <span onClick={this.toggle} style={{cursor: 'pointer'}} className={this.state.rightOrLeft}></span>
             </a>
 
         </div>

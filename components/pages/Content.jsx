@@ -7,7 +7,8 @@ class Content extends React.Component {
   constructor(props)  {
     super(props);
     this.state = {
-      name: 'Project Title'
+      name: 'Project Title',
+      rightOrLeft: ''
     }
   }
 
@@ -17,7 +18,7 @@ class Content extends React.Component {
 
       <Contact name={this.state.name} />
 
-      <Projects />
+      <Projects onLoad= {this.props.rightOrLeft} />
 
     </div>
     );

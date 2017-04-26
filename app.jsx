@@ -5,7 +5,7 @@ var Main = require('Main');
 var Content = require('Content');
 var About = require('About');
 var Contact = require('Contact');
-
+var Projects = require('Projects');
 
 
 // Load foundation
@@ -26,9 +26,12 @@ require('style-loader!css-loader!sass-loader!applicationFonts')
 const App = () => (
   <Switch>
     <Route exact path="/" component={About} />
-    <Route path="/contact" component={Contact} />
-    <Route path="/content" component={Content} />
-    <Route path="/about" component={About} />
+      <Route path="/about" component={About} />
+      <Route path="/content" component={Content}/>
+      <Route path="/projects" render= {()=>(
+          <Content rightOrLeft='left-arrow' />
+        )} />
+      <Route path="/contact" component={Content} />
   </Switch>
 )
 
