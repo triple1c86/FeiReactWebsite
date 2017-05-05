@@ -112,27 +112,27 @@ const projectsData = [{
 
           ]
 }, {
-  name : 'Project3',
-  cover : './../components/images/projects/project3/cover.jpg',
+  name : 'Inside Scoop',
+  cover : './../components/images/projects/scoop/cover.jpg',
   description : 'bla bla bla',
   images :[
-            { url: 'projects/project3/img_1.jpg',
+            { url: 'projects/scoop/img_1.jpg',
               caption: 'photo1',
               orientation: 'square',
               useForDemo: true  },
-            { url: 'projects/project3/img_2.jpg',
+            { url: 'projects/scoop/img_2.jpg',
               caption: 'photo2',
               orientation: 'square',
               useForDemo: true  },
-            { url: 'projects/project3/img_3.jpg',
+            { url: 'projects/scoop/img_3.jpg',
               caption: 'photo3',
               orientation: 'square',
               useForDemo: true  },
-            { url: 'projects/project3/img_4.jpg',
+            { url: 'projects/scoop/img_4.jpg',
               caption: 'photo4',
               orientation: 'square',
               useForDemo: true  },
-            { url: 'projects/project3/img_5.jpg',
+            { url: 'projects/scoop/img_5.jpg',
               caption: 'photo5',
               orientation: 'square',
               useForDemo: true  },
@@ -145,7 +145,7 @@ var data = {
     images :[
       'projects/foresta/cover.jpg',
       'projects/kiaramas/cover.jpg',
-      'projects/project3/cover.jpg',
+      'projects/scoop/cover.jpg',
       'projects/foresta/cover.jpg',
       'projects/foresta/cover.jpg',
     ]
@@ -308,7 +308,7 @@ render() {
       backgroundImage: 'url(' + urlP2 + ')'
     };
 
-    var urlP3 = require('./../../components/images/projects/project3/cover.jpg');
+    var urlP3 = require('./../../components/images/projects/scoop/cover.jpg');
     var project3 = {
       backgroundImage: 'url(' + urlP3 + ')'
     };
