@@ -155,6 +155,7 @@ const classes = StyleSheet.create({
 	square: {
 		paddingBottom: 0,
 		width: '100%',
+		height: '100%',
 
 		'@media (min-width: 500px)': {
 			paddingBottom: 0,
@@ -167,7 +168,6 @@ const classes = StyleSheet.create({
 		display: 'block',
 		height: 'auto',
 		maxWidth: '100%',
-		maxHeight: '100%',
 		width: 'auto',
 	},
 });

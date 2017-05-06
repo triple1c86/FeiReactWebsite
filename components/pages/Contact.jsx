@@ -66,18 +66,20 @@ class Contact extends React.Component {
           </article>
           <ul className='social text-right'>
               <li>
+                <Linkify>
                 <div className='lava-link'>
-                  <h4>PINTEREST<span className='tick right'></span></h4>
+                  <a href=''></a><h4>PINTEREST<span className='tick right'></span></h4>
+                </div>
+                </Linkify>
+              </li>
+              <li>
+                <div className='lava-link'>
+                  <a href='http://instagram.com/custo_design'><h4>INSTAGRAM<span className='tick right'></span></h4></a>
                 </div>
               </li>
               <li>
                 <div className='lava-link'>
-                  <h4>INSTAGRAM<span className='tick right'></span></h4>
-                </div>
-              </li>
-              <li>
-                <div className='lava-link'>
-                  <h4>FACEBOOK<span className='tick right'></span></h4>
+                  <a href='http://facebook.com/custodesign/'><h4>FACEBOOK<span className='tick right'></span></h4></a>
                 </div>
               </li>
             </ul>

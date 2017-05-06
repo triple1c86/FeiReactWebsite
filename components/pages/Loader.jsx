@@ -24,11 +24,9 @@ class Loader extends React.Component {
   }
     render() {
       return(
-        
+        <a onClick={this.onHide.bind(this)} style={{cursor:'pointer'}}>
         <div id= 'loader' style={{ opacity: this.state.opacity, visibility: this.state.visibility, transform: this.state.transform}}>
-          <a onClick={this.onHide.bind(this)} style={{cursor:'pointer'}}>
             <LogoA />
-          </a>
           <div className= 'scrollZone t10'>
             <div className= 'trackLine'>
               <div className='innerLine'>
@@ -38,7 +36,7 @@ class Loader extends React.Component {
             </div>
           </div>
         </div>
-
+        </a>
     )
   }
 
