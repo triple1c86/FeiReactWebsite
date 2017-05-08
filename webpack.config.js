@@ -52,6 +52,7 @@ module.exports = {
       Logo: path.resolve(__dirname, 'components/Logo.jsx'),
       LogoA: path.resolve(__dirname, 'components/LogoA.jsx'),
       ArrowButton: path.resolve(__dirname, 'components/ArrowButton.jsx'),
+      Gallery: path.resolve(__dirname, 'components/Gallery.jsx'),
       EmailUser: path.resolve(__dirname, 'components/EmailUser.jsx'),
       applicationStyles: path.resolve(__dirname, 'components/styles/app.scss'),
       applicationFonts: path.resolve(__dirname, 'components/fonts/fonts.scss'),

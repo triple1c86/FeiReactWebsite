@@ -1,14 +1,10 @@
 var React = require('react');
 var Logo = require('Logo');
 var ArrowButton = require('ArrowButton');
+var Gallery = require('Gallery');
 
 import Lightbox from 'react-images';
 import Tappable from 'react-tappable';
-
-
-import Gallery from '../Gallery.jsx';
-
-
 
 
 const {Fullpage, Slide, HorizontalSlider, Overlay, changeHorizontalSlide, changeFullpageSlide} = require('fullpage-react');
@@ -16,14 +12,9 @@ const {Fullpage, Slide, HorizontalSlider, Overlay, changeHorizontalSlide, change
 
 
 let fullPageOptions = {
-  // for mouse/wheel events
-  // represents the level of force required to generate a slide change on non-mobile, 10 is default
-  scrollSensitivity: 5,
-
-  // for touchStart/touchEnd/mobile scrolling
-  // represents the level of force required to generate a slide change on mobile, 10 is default
-  touchSensitivity: 5,
-  scrollSpeed: 500,
+  scrollSensitivity: 2,
+  touchSensitivity: 2,
+  scrollSpeed: 1500,
   resetSlides: true,
   hideScrollBars: true
 };
@@ -285,6 +276,8 @@ render() {
       </Overlay>
     );
 
+{/**/}
+
     let prevHorizontalSlide = changeHorizontalSlide.bind(null, 'horizontalSlider1', 'PREV');
     let nextHorizontalSlide = changeHorizontalSlide.bind(null, 'horizontalSlider1', 'NEXT');
 
@@ -317,8 +310,8 @@ return (
   <div id= 'rightPage' className ={rightTrain.join(' ')} style={{ zIndex: this.state.indexZ}}>
 
     <Fullpage onSlideChangeStart={this.onSlideChangeStart} onSlideChangeEnd={this.onSlideChangeEnd} {...fullPageOptions}>
-
-    {/*{topNav}*/}
+      {topNav}
+    {/**/}
 
     <Slide>
       <div id="leftInner" className='page'>

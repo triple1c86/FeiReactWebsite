@@ -8,6 +8,7 @@ class Content extends React.Component {
     super(props);
     this.state = {
       name: 'Project Title',
+      address: 'Project Address',
       rightOrLeft: ''
     }
   }
@@ -16,7 +17,7 @@ class Content extends React.Component {
   return (
     <div id='wrapper'>
 
-      <Contact name={this.state.name} />
+      <Contact name={this.state.name} address={this.state.address} />
 
       <Projects onLoad= {this.props.rightOrLeft} />
 

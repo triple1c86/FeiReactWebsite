@@ -91,7 +91,11 @@ class Contact extends React.Component {
 
         <a onClick={this.toggle}><Logo width="175" height="100"/></a>
 
+        <div className='title'>
           <h1>{this.props.name}</h1>
+          <h4>{this.props.address}</h4>
+        </div>
+
           <ul className='home text-left'>
               <li>
                 <div className='lava-link'>

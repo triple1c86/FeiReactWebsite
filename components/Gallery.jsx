@@ -166,10 +166,10 @@ const classes = StyleSheet.create({
 	source: {
 		border: 0,
 		display: 'block',
-		height: '33vh',
+		height: '33.3vh',
 		maxWidth: '100%',
 		width: '100vw',
 	},
 });
 
-export default Gallery;
+module.exports = Gallery;
