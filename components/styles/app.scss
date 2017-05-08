@@ -13,9 +13,10 @@ body {
 }
 
 h1 {
+  position: absolute;
   z-index: 2;
-  margin-left:5%;
-  margin-top: 30%;
+  left:6.8%;
+  top: 45%;
 }
 
 #wrapper {
@@ -186,19 +187,14 @@ h1 {
 }
 
 .section {
-  width: 100%;
-  height: 100%;
+
 }
 .item {
-  float: left;
-  vertical-align: middle;
-  width: 50%;
+  object-fit: cover;
 }
 
 .item img {
-  display: block;
-  width: 100%;
-  height: 100%;
+  object-fit: cover;
 }
 
 .left-arrow {
@@ -387,13 +383,13 @@ h4 {
 ul.social {
   height: 40px;
   position: absolute;
-  bottom: 30px;
-  right: 60px;
+  bottom: 4%;
+  right: 6%;
   width: 100%;
 }
 ul.social li {
 
-  margin-left: 30px;
+  margin-left: 3%;
   display: inline-block;
 }
 ol, ul {
@@ -403,12 +399,11 @@ ol, ul {
 ul.home {
   height: 40px;
   position: absolute;
-  bottom: 30px;
-  right: -45px;
+  bottom: 4%;
+  left: 5%;
   width: 100%;
 }
 ul.home li {
-  margin-left: 30px;
   display: inline-block;
 }
 

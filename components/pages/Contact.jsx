@@ -89,7 +89,8 @@ class Contact extends React.Component {
       <div id="rightInner" className='page'>
 
 
-        <Logo width="175" height="100"/>
+        <a onClick={this.toggle}><Logo width="175" height="100"/></a>
+
           <h1>{this.props.name}</h1>
           <ul className='home text-left'>
               <li>

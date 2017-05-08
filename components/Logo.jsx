@@ -5,7 +5,6 @@ class Logo extends React.Component {
 
  render() {
    return (
-     <Link to='/'>
      <svg
         height={this.props.height}
         width={this.props.width}
@@ -44,7 +43,7 @@ class Logo extends React.Component {
 
          	 <path d="m 126.3,0 c 63.5,0 114.9,31.3 114.9,69.8 0,38.6 -51.5,69.8 -114.9,69.8 z"
           className="st0" id="XMLID_1_" />
-     	 </svg></Link>
+     	 </svg>
 
    );
  }
