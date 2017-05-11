@@ -1,9 +1,9 @@
-import  React,{ Proptypes, Component } from 'react';
+import  React from 'react';
 // import PropTypes from 'prop-types';
 import { css, StyleSheet } from 'aphrodite/no-important';
 import Lightbox from 'react-images';
 
-class Gallery extends Component {
+class Gallery extends React.Component {
 	constructor () {
 		super();
 /*ALL THESE ARE LIGHTBOX RELATED*/
@@ -65,7 +65,7 @@ class Gallery extends Component {
 
 		const gallery = images.filter(i => i.useForDemo).map((obj, i) => {
 			return (
-				<div className="item">
+				<div className="item" key={i}>
 				<a
 					href={obj.src}
 					className={css(classes.thumbnail, classes[obj.orientation])}
@@ -86,7 +86,7 @@ class Gallery extends Component {
 	}
 	render () {
 		return (
-			<div className="section">
+			<div className="galleria">
 				{this.props.heading && <h2>{this.props.heading}</h2>}
 				{this.props.subheading && <p>{this.props.subheading}</p>}
 				{this.renderGallery()}
@@ -101,7 +101,7 @@ class Gallery extends Component {
 					onClose={this.closeLightbox}
 					showThumbnails={this.props.showThumbnails}
 					theme={this.props.theme}
-					width= '80%'
+					width= '80vw'
 				/>
 			</div>
 		);
