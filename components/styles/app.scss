@@ -19,12 +19,44 @@ h1 {
 h4 {
   font-size: 1rem;
 }
+#fp-nav ul li .fp-tooltip {
+  color: #D8B351;
+}
+#fp-nav ul li a span, .fp-slidesNav ul li a span {
+  background: #D8B351;
+}
 
 .title {
   position: absolute;
-  z-index: 2;
-  left:6.8%;
+  z-index: 1;
+  left:-46.7%;
   top: 45%;
+}
+
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active{
+  opacity: 1;
+}
+
+.example-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+}
+
+.example-leave {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
 }
 
 #wrapper {
@@ -176,8 +208,8 @@ h4 {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 50vw;
+  height: 100vh;
 /*  background: url(../images/projects/foresta/cover.jpg)no-repeat center center; */
   background-position: center center;
   // filter: gray; /* IE6-9 */
@@ -461,13 +493,13 @@ article {
     right: 0;
     width: 100%;
     height: 100%;
-    padding: 37% 20%;
+    padding: 33% 20%;
     white-space: normal;
 }
 
 article p {
   color: #D8B351;
-  font-size: 120%;
+  font-size: 1.2rem;
 }
 
 // page sliding
@@ -491,13 +523,6 @@ article p {
   transform: translate3d(0, 0, 0);
 
 }
-
-//fullpage react SHIT
-
-
-
-
-
 
 // SVG Logo SHIT
 
@@ -653,6 +678,69 @@ fill-opacity: 0;
 
  svg {
      transform: scale(1.5);
-     viewBox: 960 540 1920 1080;
+
    }
+   .logoNA{
+      margin: 9% !important;
+      margin-top: 12% !important;
+   }
+
+   article {
+     padding: 31rem 5rem;
+   }
+}
+
+@media only screen
+  and (max-device-height: 665px)
+  and (orientation: landscape) {
+    article p {
+      font-size: .7rem;
+    }
+
+    h1{
+      font-size: 2.5rem;
+    }
+
+    h4{
+      font-size: .7rem;
+    }
+
+
+    .left-arrow {
+      width: 3em;
+      height: 3em;
+    }
+
+    .left-arrow:hover {
+      width: 3em;
+      height: 3em;
+      transform: scale(1.10);
+    }
+
+    .left-arrow:after {
+      margin-top: 15%;
+      margin-left: 25%;
+      width: 1.3em;
+      height: 1.3em;
+    }
+
+    .right-arrow {
+      width: 3em;
+      height: 3em;
+
+    }
+
+    .right-arrow:hover {
+      width: 3em;
+      height: 3em;
+      transform: scale(1.10);
+    }
+
+    .right-arrow:after {
+      margin-top: 20%;
+      margin-left: 5%;
+      width: 1.3em;
+      height: 1.3em;
+
+    }
 }

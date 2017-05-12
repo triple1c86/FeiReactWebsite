@@ -47,7 +47,7 @@ module.exports = {
       Contact: path.resolve(__dirname, 'components/pages/Contact.jsx'),
       Projects: path.resolve(__dirname, 'components/pages/Projects.jsx'),
       Content: path.resolve(__dirname, 'components/pages/Content.jsx'),
-      Main: path.resolve(__dirname, 'components/Main.jsx'),
+      Main: path.resolve(__dirname, 'components/pages/Main.jsx'),
       Loader: path.resolve(__dirname, 'components/pages/Loader.jsx'),
       Logo: path.resolve(__dirname, 'components/Logo.jsx'),
       LogoA: path.resolve(__dirname, 'components/LogoA.jsx'),

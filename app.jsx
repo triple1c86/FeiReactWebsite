@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var {Route, Router, Switch, BrowserRouter} = require('react-router-dom');
+var {Route, Router, Switch, BrowserRouter, IndexRoute} = require('react-router-dom');
 var Main = require('Main');
 var Content = require('Content');
 var About = require('About');
@@ -27,10 +27,8 @@ const App = () => (
   <Switch>
     <Route exact path="/" component={About} />
       <Route path="/about" component={About} />
-      <Route path="/content" component={Content}/>
-      <Route path="/projects" render= {()=>(
-          <Content rightOrLeft='left-arrow' />
-        )} />
+      <Route path="/content" component={Content} />
+      <Route path="/projects" component={Projects} />
       <Route path="/contact" component={Content} />
   </Switch>
 )

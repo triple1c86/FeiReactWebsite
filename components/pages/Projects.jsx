@@ -93,15 +93,7 @@ const projectsData = [{
           ]
 }];
 
-function makeUnsplashSrc (url) {
-	return require('./../../components/images/' + url);
-}
-
-function makeUnsplashThumbnail (url, orientation = 'landscape') {
-	const dimensions = orientation === 'square'
-		? 'w=400&h=300'
-		: 'w=240&h=159';
-
+function makeImgSrc (url) {
 	return require('./../../components/images/' + url);
 }
 
@@ -114,7 +106,9 @@ constructor(props) {
     addClass: false,
     indexZ: 0,
     rightOrLeft: 'right-arrow',
-    filter: 'grayscale(90%)'
+    filter: 'grayscale(90%)',
+    title: 'Foresta',
+    address: 'Bandar Sri Damansara'
 
   };
   this.toggle = this.toggle.bind(this);
@@ -123,8 +117,10 @@ constructor(props) {
 
 componentDidMount() {
     $('#fullpage').fullpage({
-
+      anchors: ['foresta','kiaramas','inside'],
+      navigationTooltips: ['Foresta', 'Kiaramas','Inside Scoop'],
       navigation: true,
+      showActiveTooltip: true,
 
     css3: true,
 		scrollingSpeed: 1000,
@@ -139,6 +135,31 @@ componentDidMount() {
 		normalScrollElementTouchThreshold: 5,
 		bigSectionsDestination: null,
 
+
+
+    onLeave: function(index, nextIndex, direction){
+     switch(nextIndex) {
+       case 1:
+         this.setState({
+           title: 'Foresta',
+           address: 'Bandar Sri Damansara'
+         });
+        break;
+         case 2:
+         this.setState({
+           title: 'Kiaramas',
+           address: 'Mont Kiara'
+         });
+        break;
+         case 3:
+         this.setState({
+           title: 'Inside Scoop',
+           address: 'Mahkota Cheras'
+         });
+        break;
+     //etc
+     }
+ }.bind(this),
     });
   }
 
@@ -182,18 +203,24 @@ return (
     <a>
       <span onClick={this.toggle} style={{cursor: 'pointer'}} className={this.state.rightOrLeft}></span>
     </a>
-
+    <div className='title'>
+      <h1>{this.state.title}</h1>
+      <h4>{this.state.address}</h4>
+    </div>
     <div id="fullpage">
         <div className="section active">
           <div id="leftInner" className='page'>
+
               <div id="projectImg" style={Object.assign({}, project1, {filter:this.state.filter})}></div>
+
           </div>
 
           <div id="rightInner" className='page'>
 
+
             <Gallery images={projectsData[0].images.map(({ caption, url, useForDemo, orientation }) => ({
-                src: makeUnsplashSrc(url),
-                thumbnail: makeUnsplashThumbnail(url, orientation),
+                src: makeImgSrc(url),
+                thumbnail: makeImgSrc(url),
                 caption,
                 orientation,
                 useForDemo,
@@ -210,8 +237,8 @@ return (
           <div id="rightInner" className='page'>
 
             <Gallery images={projectsData[1].images.map(({ caption, url, useForDemo, orientation }) => ({
-        src: makeUnsplashSrc(url),
-        thumbnail: makeUnsplashThumbnail(url, orientation),
+        src: makeImgSrc(url),
+        thumbnail: makeImgSrc(url),
         caption,
         orientation,
         useForDemo,
@@ -227,8 +254,8 @@ return (
           <div id="rightInner" className='page'>
 
             <Gallery images={projectsData[2].images.map(({ caption, url, useForDemo, orientation }) => ({
-        src: makeUnsplashSrc(url),
-        thumbnail: makeUnsplashThumbnail(url, orientation),
+        src: makeImgSrc(url),
+        thumbnail: makeImgSrc(url),
         caption,
         orientation,
         useForDemo,
@@ -236,7 +263,7 @@ return (
           </div>
         </div>
       </div>
-      
+
 
   </div>
 );

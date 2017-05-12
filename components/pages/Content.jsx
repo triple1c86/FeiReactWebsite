@@ -5,20 +5,17 @@ var Contact = require('Contact');
 class Content extends React.Component {
   constructor(props)  {
     super(props);
-    this.state = {
-      name: 'Project Title',
-      address: 'Project Address',
-      rightOrLeft: ''
-    }
+
   }
+
 
   render() {
   return (
     <div id='wrapper'>
 
-      <Contact name={this.state.name} address={this.state.address} />
+      <Contact />
 
-      <Projects onLoad= {this.props.rightOrLeft} />
+      <Projects />
 
     </div>
     );

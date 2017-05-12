@@ -68,7 +68,7 @@ class Contact extends React.Component {
               <li>
                 <Linkify>
                 <div className='lava-link'>
-                  <a href=''></a><h4>PINTEREST<span className='tick right'></span></h4>
+                  <a href=''></a><h4>(Soon!)PINTEREST<span className='tick right'></span></h4>
                 </div>
                 </Linkify>
               </li>

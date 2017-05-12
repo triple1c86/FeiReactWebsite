@@ -13,6 +13,7 @@ class Logo extends React.Component {
         x= "0px"
         id="Layer_1"
         version="1.1"
+        className="logoNA"
         style={{ margin: "5%"}}>
 
           <title id="title">Custo Icon</title>
