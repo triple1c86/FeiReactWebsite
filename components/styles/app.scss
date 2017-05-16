@@ -33,30 +33,9 @@ h4 {
   top: 45%;
 }
 
-.example-appear {
-  opacity: 0.01;
-}
+.close_1pts9jo {
+    top: 2rem !important;
 
-.example-appear.example-appear-active{
-  opacity: 1;
-}
-
-.example-enter {
-  opacity: 0.01;
-  transition: opacity .5s ease-in;
-}
-
-.example-enter.example-enter-active {
-  opacity: 1;
-}
-
-.example-leave {
-  opacity: 1;
-  transition: opacity .5s ease-in;
-}
-
-.example-leave.example-leave-active {
-  opacity: 0.01;
 }
 
 #wrapper {
@@ -686,13 +665,14 @@ fill-opacity: 0;
    }
 
    article {
-     padding: 31rem 5rem;
+     padding: 29.5rem 5rem;
    }
 }
 
 @media only screen
-  and (max-device-height: 665px)
-  and (orientation: landscape) {
+  and (orientation: landscape)
+  and (min-device-height: 300px)
+  and (max-device-height: 720px) {
     article p {
       font-size: .7rem;
     }

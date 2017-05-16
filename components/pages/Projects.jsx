@@ -125,15 +125,13 @@ componentDidMount() {
     css3: true,
 		scrollingSpeed: 1000,
 		autoScrolling: true,
-		fitToSection: true,
-		fitToSectionDelay: 1000,
-		scrollBar: false,
+		fitToSectionDelay: 500,
 		easing: 'easeInOutCubic',
 		easingcss3: 'ease',
     continuousVertical: true,
 		touchSensitivity: 15,
 		normalScrollElementTouchThreshold: 5,
-		bigSectionsDestination: null,
+
 
 
 

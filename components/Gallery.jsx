@@ -72,7 +72,7 @@ class Gallery extends React.Component {
 					key={i}
 					onClick={(e) => this.openLightbox(i, e)}
 				>
-					<img data-src={obj.thumbnail} className={css(classes.source)} />
+					<img src={obj.thumbnail} className={css(classes.source)} />
 				</a>
 				</div>
 			);
@@ -174,7 +174,7 @@ const classes = StyleSheet.create({
 		width: '100vw',
 
 		'@media only screen and (orientation: portrait)': {
-			height: '16.6vh'
+			height: '14.8vh'
 		},
 	},
 });
