@@ -4,7 +4,8 @@
   "description": "Fei's official business website",
   "main": "app.jsx",
   "scripts": {
-    "start": "webpack-dev-server --inline --hot --port 9999"
+    "start": "webpack-dev-server --inline --hot --port 9999",
+    "buildp": "webpack -p"
   },
   "author": "Albert Chai",
   "license": "ISC",
