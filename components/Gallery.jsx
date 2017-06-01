@@ -174,6 +174,10 @@ const classes = StyleSheet.create({
 		width: '100vw',
 
 		'@media only screen and (orientation: portrait)': {
+			height: '16.666vh'
+		},
+
+		'@media only screen and (orientation: portrait) and (min-device-height: 300px) and (max-device-height: 740px)': {
 			height: '14.8vh'
 		},
 	},

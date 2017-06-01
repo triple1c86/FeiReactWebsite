@@ -9,32 +9,28 @@ var Projects = require('Projects');
 
 
 // Load foundation
-  require('style-loader!css-loader!foundation-sites/dist/css/foundation.min.css')
- // $(document).foundation();
- //require("foundation-sites-loader");
+require('style-loader!css-loader!foundation-sites/dist/css/foundation.min.css')
 
 // App css
 require('style-loader!css-loader!sass-loader!applicationStyles')
-//require('style-loader!css-loader!fullreactNorm')
-//require('style-loader!css-loader!fullreactSke')
-require('style-loader!css-loader!sass-loader!exampleStyles')
-
 
 // App font
 require('style-loader!css-loader!sass-loader!applicationFonts')
 
 const App = () => (
-  <Switch>
+  <div>
     <Route exact path="/" component={About} />
-      <Route path="/about" component={About} />
-      <Route path="/content" component={Content} />
-      <Route path="/projects" component={Projects} />
-      <Route path="/contact" component={Content} />
-  </Switch>
+    <Route path="/about" component={About} />
+    <Route path="/content" component={Content} />
+    <Route path="/projects" component={Projects} />
+    <Route path="/contact" component={Content} />
+  </div>
 )
 
 ReactDOM.render((
   <BrowserRouter>
-    <App />
+
+      <App />
+
   </BrowserRouter>
 ), document.getElementById('app'))

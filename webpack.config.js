@@ -8,7 +8,7 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "public"),
-    publicPath: '/public'
+//    publicPath: '/public'
   },
 
   devServer: {
@@ -52,14 +52,11 @@ module.exports = {
       Loader: path.resolve(__dirname, 'components/pages/Loader.jsx'),
       Logo: path.resolve(__dirname, 'components/Logo.jsx'),
       LogoA: path.resolve(__dirname, 'components/LogoA.jsx'),
-      ArrowButton: path.resolve(__dirname, 'components/ArrowButton.jsx'),
       Gallery: path.resolve(__dirname, 'components/Gallery.jsx'),
       EmailUser: path.resolve(__dirname, 'components/EmailUser.jsx'),
       applicationStyles: path.resolve(__dirname, 'components/styles/app.scss'),
-      applicationFonts: path.resolve(__dirname, 'components/fonts/fonts.scss'),
-      fullreactNorm: path.resolve(__dirname, 'components/normalize.css'),
-      fullreactSke: path.resolve(__dirname, 'components/skeleton.css'),
-      exampleStyles: path.resolve(__dirname, 'components/exampleStyles.scss')
+      applicationFonts: path.resolve(__dirname, 'components/fonts/fonts.scss')
+
     },
     extensions: ['.css','.scss', '.js', '.jsx']
   },

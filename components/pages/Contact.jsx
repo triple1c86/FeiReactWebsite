@@ -16,12 +16,12 @@ class Contact extends React.Component {
 
   toggle() {
     this.setState({
-      indexZ: this.state.indexZ+1,
+      indexZ: this.state.indexZ+2,
       addClass: !this.state.addClass,
       homeOrAbout: this.state.homeOrAbout
     });
 
-    if(this.state.indexZ==1){
+    if(this.state.indexZ>1){
       setTimeout(function(){
              this.setState({indexZ: 0});
         }.bind(this),600);
@@ -66,11 +66,9 @@ class Contact extends React.Component {
           </article>
           <ul className='social text-right'>
               <li>
-                <Linkify>
                 <div className='lava-link'>
-                  <a href=''></a><h4>(Soon!)PINTEREST<span className='tick right'></span></h4>
+                  <a href='../csoon.html'></a><h4>PINTEREST<span className='tick right'></span></h4>
                 </div>
-                </Linkify>
               </li>
               <li>
                 <div className='lava-link'>

@@ -1,6 +1,5 @@
 var React = require('react');
 var Logo = require('Logo');
-var ArrowButton = require('ArrowButton');
 var Gallery = require('Gallery');
 
 import Lightbox from 'react-images';
@@ -118,9 +117,8 @@ constructor(props) {
 componentDidMount() {
     $('#fullpage').fullpage({
       anchors: ['foresta','kiaramas','inside'],
-      navigationTooltips: ['Foresta', 'Kiaramas','Inside Scoop'],
       navigation: true,
-      showActiveTooltip: true,
+      showActiveTooltip: false,
 
     css3: true,
 		scrollingSpeed: 1000,
@@ -201,7 +199,7 @@ return (
     <a>
       <span onClick={this.toggle} style={{cursor: 'pointer'}} className={this.state.rightOrLeft}></span>
     </a>
-    <div className='title'>
+    <div onClick={this.toggle} style={{cursor: 'pointer'}} className='title {this.state.rightOrLeft}'>
       <h1>{this.state.title}</h1>
       <h4>{this.state.address}</h4>
     </div>
@@ -209,7 +207,7 @@ return (
         <div className="section active">
           <div id="leftInner" className='page'>
 
-              <div id="projectImg" style={Object.assign({}, project1, {filter:this.state.filter})}></div>
+              <div id="projectImg1" style={Object.assign({}, project1, {filter:this.state.filter})}></div>
 
           </div>
 
