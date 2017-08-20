@@ -37,6 +37,33 @@ const projectsData = [{
               useForDemo: true  },
           ]
 }, {
+  name : 'Vortex Residence',
+  cover : './../components/images/projects/vortex/cover.jpg',
+  description : 'bla bla bla',
+  images :[
+            { url: 'projects/vortex/img_1.jpg',
+              caption: 'photo1',
+              orientation: 'square',
+              useForDemo: true  },
+            { url: 'projects/vortex/img_2.jpg',
+              caption: 'photo2',
+              orientation: 'square',
+              useForDemo: true  },
+            { url: 'projects/vortex/img_3.jpg',
+              caption: 'photo3',
+              orientation: 'square',
+              useForDemo: true  },
+            { url: 'projects/vortex/img_4.jpg',
+              caption: 'photo4',
+              orientation: 'square',
+              useForDemo: true  },
+            { url: 'projects/vortex/img_5.jpg',
+              caption: 'photo5',
+              orientation: 'square',
+              useForDemo: true  },
+
+          ]
+}, {
   name : 'Kiaramas',
   cover : './../components/images/projects/kiaramas/cover.jpg',
   description : 'bla bla bla',
@@ -141,13 +168,19 @@ componentDidMount() {
            address: 'Bandar Sri Damansara'
          });
         break;
-         case 2:
+        case 2:
+        this.setState({
+          title: 'Vortex Residence',
+          address: 'Kuala Lumpur'
+        });
+       break;
+         case 3:
          this.setState({
            title: 'Kiaramas',
            address: 'Mont Kiara'
          });
         break;
-         case 3:
+         case 4:
          this.setState({
            title: 'Inside Scoop',
            address: 'Mahkota Cheras'
@@ -183,14 +216,19 @@ render() {
       backgroundImage: 'url(' + urlP1 + ')'
     };
 
-    var urlP2 = require('./../../components/images/projects/kiaramas/cover.jpg');
+    var urlP2 = require('./../../components/images/projects/vortex/cover.jpg');
     var project2 = {
       backgroundImage: 'url(' + urlP2 + ')'
     };
 
-    var urlP3 = require('./../../components/images/projects/scoop/cover.jpg');
+    var urlP3 = require('./../../components/images/projects/kiaramas/cover.jpg');
     var project3 = {
       backgroundImage: 'url(' + urlP3 + ')'
+    };
+
+    var urlP4 = require('./../../components/images/projects/scoop/cover.jpg');
+    var project4 = {
+      backgroundImage: 'url(' + urlP4 + ')'
     };
 
 return (
@@ -250,6 +288,23 @@ return (
           <div id="rightInner" className='page'>
 
             <Gallery images={projectsData[2].images.map(({ caption, url, useForDemo, orientation }) => ({
+        src: makeImgSrc(url),
+        thumbnail: makeImgSrc(url),
+        caption,
+        orientation,
+        useForDemo,
+      }))} showThumbnails/>
+          </div>
+        </div>
+
+        <div className="section">
+          <div id="leftInner" className='page'>
+              <div id="projectImg" style={Object.assign({}, project4, {filter:this.state.filter})}></div>
+          </div>
+
+          <div id="rightInner" className='page'>
+
+            <Gallery images={projectsData[3].images.map(({ caption, url, useForDemo, orientation }) => ({
         src: makeImgSrc(url),
         thumbnail: makeImgSrc(url),
         caption,
