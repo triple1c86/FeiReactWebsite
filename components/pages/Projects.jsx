@@ -61,7 +61,10 @@ const projectsData = [{
               caption: 'photo5',
               orientation: 'square',
               useForDemo: true  },
-
+              { url: 'projects/vortex/img_6.jpg',
+                caption: 'photo6',
+                orientation: 'square',
+                useForDemo: true  },
           ]
 }, {
   name : 'Kiaramas',
